@@ -1,25 +1,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Stickmen))]
 public class StickmenFactory : MonoBehaviour, IFactory<Stickman>
 {
     [SerializeField] private Stickman _stickman;
 
-    private List<Stickman> _stickmen;
+    private List<Stickman> _stickmenStorage;
+
+    private Stickmen _stickmen;
 
     private void Awake()
     {
-        _stickmen = new List<Stickman>();
+        _stickmen = GetComponent<Stickmen>();
+        _stickmenStorage = new List<Stickman>();
     }
 
     public Stickman Create()
     {
         Stickman stickman;
 
-        if (_stickmen.Count != 0)
+        if (_stickmenStorage.Count != 0)
         {
-            stickman = _stickmen[_stickmen.Count - 1];
-            _stickmen.RemoveAt(_stickmen.Count - 1);
+            stickman = _stickmenStorage[_stickmenStorage.Count - 1];
+            _stickmenStorage.RemoveAt(_stickmenStorage.Count - 1);
             stickman.gameObject.SetActive(true);
             return stickman;
         }
@@ -28,13 +32,16 @@ public class StickmenFactory : MonoBehaviour, IFactory<Stickman>
         stickman.transform.SetParent(transform);
         stickman.Factory = this;
 
+        _stickmen.StickmenList.Add(stickman);
+
         return stickman;
     }
 
     public void Recycle(Stickman stickman)
     {
-        _stickmen.Add(stickman);
+        _stickmenStorage.Add(stickman);
+        _stickmen.StickmenList.Remove(stickman);
         stickman.gameObject.SetActive(false);
-        stickman.transform.SetParent(this.transform);
+
     }
 }

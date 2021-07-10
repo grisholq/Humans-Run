@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class StickmanDeathHandler : MonoBehaviour
 {
-    [field: SerializeField] public StickmenFactory Factory { get; set; }
     [SerializeField] private ParticleSystem _particles;
     [SerializeField] private Color _particlesColor;
 

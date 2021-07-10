@@ -76,9 +76,9 @@ GameObject:
   - component: {fileID: 5102335239527487170}
   - component: {fileID: 1112657754497461353}
   - component: {fileID: 3425113938940301881}
-  - component: {fileID: 637723541976951141}
-  - component: {fileID: 6758961343080966359}
   - component: {fileID: 8856300016320169532}
+  - component: {fileID: 4372900873143969437}
+  - component: {fileID: 637723541976951141}
   m_Layer: 6
   m_Name: Stickman
   m_TagString: Untagged
@@ -143,51 +143,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54d69a82ec8f63745912a5e1da1cc4b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _deathParticles: {fileID: 780461553787592603, guid: ba4756c90a26b024a9013cc556652142, type: 3}
-  _deathParticlesColor: {r: 0.19215688, g: 1, b: 1, a: 1}
-  <Factory>k__BackingField: {fileID: 0}
---- !u!114 &637723541976951141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 626019924469498032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a4b15975eb02704d9d8b5a1622f6373, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _health: 1
-  _damageId: 0
-  Died:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3425113938940301881}
-        m_TargetAssemblyTypeName: Stickman, Assembly-CSharp
-        m_MethodName: Die
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &6758961343080966359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 626019924469498032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c16497ec0dfc4d4da041de5b834ea2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 10
+  _factory: {fileID: 0}
+  <IsMoving>k__BackingField: 1
+  <IsFighting>k__BackingField: 0
 --- !u!114 &8856300016320169532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,6 +158,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74deb025bc8d89e4f9d681ac5316bbc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _particles: {fileID: 780461553787592603, guid: ba4756c90a26b024a9013cc556652142, type: 3}
+  _particlesColor: {r: 0.16862746, g: 1, b: 1, a: 1}
+--- !u!114 &4372900873143969437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626019924469498032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a4f565786bc8a42ad758fc363f5b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 3657741236831741760}
+  _movingParameterName: IsMoving
+  _fightingParameterName: IsFighting
+--- !u!114 &637723541976951141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626019924469498032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a4b15975eb02704d9d8b5a1622f6373, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 10
+  _damageId: 0
+  Died:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8856300016320169532}
+        m_TargetAssemblyTypeName: StickmanDeathHandler, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &983603904417743722
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,14 +289,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1051810516238920189}
-  m_LocalRotation: {x: -0.029946283, y: 0.99799454, z: -0.046731446, w: 0.030436868}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 99.999985, y: 100, z: 99.99999}
   m_Children:
   - {fileID: 349443641330769970}
   m_Father: {fileID: 7215545688520310074}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &1116200761286162484
 GameObject:
   m_ObjectHideFlags: 0
@@ -705,6 +709,7 @@ GameObject:
   - component: {fileID: 683768866273253763}
   - component: {fileID: 5630653519060036844}
   - component: {fileID: 8952329294039816455}
+  - component: {fileID: 932437399}
   m_Layer: 6
   m_Name: Damager
   m_TagString: Untagged
@@ -751,8 +756,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f357ed17de94584980c5bd76fda598e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 1
+  _damage: 2
   _damageId: 0
+--- !u!114 &932437399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5188527046674120162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 344fd57c3ff9f694cac040a3df64a484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _range: 2
+  _aimsLayer: 128
+  HasAims:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3425113938940301881}
+        m_TargetAssemblyTypeName: Stickman, Assembly-CSharp
+        m_MethodName: set_IsFighting
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5240295121327138094
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,7 +1120,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8027970068936320896}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0.7071068, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1094,7 +1128,7 @@ Transform:
   - {fileID: 1014175327511337022}
   m_Father: {fileID: 47811285960663871}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &3657741236831741760
 Animator:
   serializedVersion: 3
@@ -1108,7 +1142,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 59dafe7443c8e934e8d1c0f03c186a9d, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1

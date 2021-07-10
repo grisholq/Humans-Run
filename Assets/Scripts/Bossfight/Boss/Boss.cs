@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
+    [field: SerializeField] public bool IsFighting { get; set; }
+
     [SerializeField] private ParticleSystem _deathParticles;
     [SerializeField] private Color _deathParticlesColor;
-
+    
     public void Die()
     {
         ParticleSystem particles = Instantiate(_deathParticles);

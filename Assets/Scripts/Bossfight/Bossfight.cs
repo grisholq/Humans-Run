@@ -3,8 +3,9 @@ using System.Collections.Generic;
 
 public class Bossfight : MonoBehaviour
 {
-    [SerializeField] private Transform boss;
-    [SerializeField] private float _stickmanSpeed;
+    [SerializeField] private Transform _boss;
+    [SerializeField] private float _speed;
+    [SerializeField] private float _stopDistance;
     private List<Stickman> _stickmen;
 
     private void Awake()
@@ -19,19 +20,27 @@ public class Bossfight : MonoBehaviour
 
     public void AddStickmanToFight(Stickman stickman)
     {
-        stickman.Mover.enabled = false;
+        stickman.Speed = 0;
         _stickmen.Add(stickman);
     }
 
     public void ProcessFight()
     {
-        if (boss == null) return;
+        if (_boss == null) return;
 
         foreach (var stickman in _stickmen)
         {
-            Vector3 position = stickman.transform.position;
-            position = Vector3.MoveTowards(position, boss.position, _stickmanSpeed * Time.deltaTime);
-            stickman.transform.position = position;
+            if (Vector3.Distance(stickman.transform.position, _boss.position) > _stopDistance)
+            {
+                Vector3 position = stickman.transform.position;
+                position = Vector3.MoveTowards(position, _boss.position, _speed * Time.deltaTime);
+                stickman.transform.position = position;
+            }
+            else
+            {
+                stickman.IsMoving = false;
+                stickman.IsFighting = true;
+            }
         }
     }
 }
