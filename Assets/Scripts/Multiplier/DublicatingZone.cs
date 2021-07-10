@@ -4,7 +4,6 @@ using UnityEngine;
 public class DublicatingZone : MonoBehaviour
 {
     [SerializeField] protected TextMeshPro _zoneInfo;
-    [SerializeField, Range(0, 2)] protected float _positionRandomization;
     [SerializeField] protected StickmenFactory _stickmanFactory;
     
     protected Bounds _spawnBounds;

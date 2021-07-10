@@ -36,6 +36,4 @@ public class PlatformsState : MonoBehaviour
             platform.SetState(State, Hold);
         }
     }
-
-
 }
