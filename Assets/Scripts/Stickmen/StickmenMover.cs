@@ -3,20 +3,20 @@ using UnityEngine;
 [RequireComponent(typeof(Stickmen))]
 public class StickmenMover : MonoBehaviour
 {
-    [SerializeField] private float _forwardSpeed;
-
     private Stickmen _stickmen;
+    private IMover _defaultMover;
 
     private void Awake()
     {
         _stickmen = GetComponent<Stickmen>();
+        _defaultMover = new DirectionMover(Vector3.forward);
     }
 
     private void Start()
     {
         foreach (var stickman in _stickmen.StickmenList)
         {
-            stickman.IsMoving = true;
+            stickman.Mover = _defaultMover;
         }
     }
 
@@ -24,11 +24,19 @@ public class StickmenMover : MonoBehaviour
     {
         foreach (var stickman in _stickmen.StickmenList)
         {
-            if (!stickman.IsMoving) continue;
-
-            Vector3 velocity = stickman.Rigidbody.velocity * stickman.Speed;
-            velocity.z = _forwardSpeed;
-            stickman.Rigidbody.velocity = velocity * stickman.Speed;
+            stickman.Move();       
         }
+    }
+
+    public void SetStickmanMover()
+    {
+
+    }
+
+    private void Move(IMovable movable)
+    {
+        Vector3 velocity = movable.Rigidbody.velocity * movable.Speed;
+        velocity.z = _forwardSpeed;
+        movable.Rigidbody.velocity = velocity * movable.Speed;
     }
 }

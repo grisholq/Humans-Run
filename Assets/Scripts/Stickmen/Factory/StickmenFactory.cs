@@ -25,6 +25,8 @@ public class StickmenFactory : MonoBehaviour, IFactory<Stickman>
             stickman = _stickmenStorage[_stickmenStorage.Count - 1];
             _stickmenStorage.RemoveAt(_stickmenStorage.Count - 1);
             stickman.gameObject.SetActive(true);
+            stickman.Factory = this;
+            _stickmen.StickmenList.Add(stickman);
             return stickman;
         }
 
@@ -42,6 +44,6 @@ public class StickmenFactory : MonoBehaviour, IFactory<Stickman>
         _stickmenStorage.Add(stickman);
         _stickmen.StickmenList.Remove(stickman);
         stickman.gameObject.SetActive(false);
-
+        stickman.Reset();
     }
 }

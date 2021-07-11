@@ -18,18 +18,18 @@ public class AddingZone : DublicatingZone
         return '+' + _addAmount.ToString();
     }
 
-    protected override void HandleDublication(Stickman human)
+    protected override void HandleDublication(Stickman stickman)
     {
         if (_zonePassed == true) return;
       
         for (int i = 0; i < _addAmount; i++)
         {
             Stickman spawnedHuman = _stickmanFactory.Create();
-            spawnedHuman.transform.position = GetSpawnPosition();
+            spawnedHuman.transform.position = GetSpawnPosition(stickman.transform);
             spawnedHuman.LastDublicateZone = this;
         }
 
-        human.LastDublicateZone = this;
+        stickman.LastDublicateZone = this;
         _zonePassed = true;
     }
 }

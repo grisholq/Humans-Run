@@ -20,7 +20,7 @@ public class Bossfight : MonoBehaviour
 
     public void AddStickmanToFight(Stickman stickman)
     {
-        stickman.Speed = 0;
+        stickman.Speed = 0.11f;
         _stickmen.Add(stickman);
     }
 
@@ -38,7 +38,6 @@ public class Bossfight : MonoBehaviour
             }
             else
             {
-                stickman.IsMoving = false;
                 stickman.IsFighting = true;
             }
         }

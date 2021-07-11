@@ -79,6 +79,7 @@ GameObject:
   - component: {fileID: 8856300016320169532}
   - component: {fileID: 4372900873143969437}
   - component: {fileID: 637723541976951141}
+  - component: {fileID: 5083830677621538031}
   m_Layer: 6
   m_Name: Stickman
   m_TagString: Untagged
@@ -113,8 +114,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 1.7, z: 0.5}
-  m_Center: {x: -0.030164063, y: 0.79719317, z: 0.116347104}
+  m_Size: {x: 0.37745735, y: 1.4467452, z: 0.35605073}
+  m_Center: {x: -0.034248814, y: 0.6705657, z: 0.14240661}
 --- !u!54 &1112657754497461353
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -130,7 +131,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!114 &3425113938940301881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,8 +144,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54d69a82ec8f63745912a5e1da1cc4b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speed: 1
   _factory: {fileID: 0}
-  <IsMoving>k__BackingField: 1
   <IsFighting>k__BackingField: 0
 --- !u!114 &8856300016320169532
 MonoBehaviour:
@@ -173,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 3657741236831741760}
-  _movingParameterName: IsMoving
+  _speedParameterName: Speed
   _fightingParameterName: IsFighting
 --- !u!114 &637723541976951141
 MonoBehaviour:
@@ -187,8 +188,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a4b15975eb02704d9d8b5a1622f6373, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 10
   _damageId: 0
+  DamageRecieved:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5083830677621538031}
+        m_TargetAssemblyTypeName: Health, Assembly-CSharp
+        m_MethodName: Damage
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5083830677621538031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626019924469498032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e194dc8b8de4145418b64cb9e1cb80de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   Died:
     m_PersistentCalls:
       m_Calls:
@@ -204,6 +231,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _value: 1
+  _max: 1
 --- !u!1 &983603904417743722
 GameObject:
   m_ObjectHideFlags: 0

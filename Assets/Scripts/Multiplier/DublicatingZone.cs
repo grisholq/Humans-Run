@@ -33,23 +33,23 @@ public class DublicatingZone : MonoBehaviour
         return "+1";
     }
 
-    protected virtual void HandleDublication(Stickman human)
+    protected virtual void HandleDublication(Stickman stickman)
     {
-        if (human.LastDublicateZone == this) return;
+        if (stickman.LastDublicateZone == this) return;
 
-        human.LastDublicateZone = this;
+        stickman.LastDublicateZone = this;
 
         Stickman spawnedHuman = _stickmanFactory.Create();
-        spawnedHuman.transform.position = GetSpawnPosition();
+        spawnedHuman.transform.position = GetSpawnPosition(stickman.transform);
         spawnedHuman.LastDublicateZone = this;
     }
 
-    protected Vector3 GetSpawnPosition()
+    protected Vector3 GetSpawnPosition(Transform origin)
     {
         Vector3 position;
 
         position.x = _spawnBounds.center.x + Random.Range(-_spawnBounds.size.x / 2, _spawnBounds.size.x / 2);
-        position.y = 0;
+        position.y = origin.position.y;
         position.z = _spawnBounds.center.z + Random.Range(-_spawnBounds.size.z / 2, _spawnBounds.size.z / 2);
 
         return position;

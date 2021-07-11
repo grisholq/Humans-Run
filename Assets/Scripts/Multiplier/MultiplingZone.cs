@@ -15,17 +15,17 @@ public class MultiplingZone : DublicatingZone
         return 'x' + _multiplier.ToString();
     }
 
-    protected override void HandleDublication(Stickman human)
+    protected override void HandleDublication(Stickman stickman)
     {
-        if (human.LastDublicateZone == this) return;
+        if (stickman.LastDublicateZone == this) return;
 
         for (int i = 0; i < _multiplier; i++)
         {
             Stickman spawnedHuman = _stickmanFactory.Create();
-            spawnedHuman.transform.position = GetSpawnPosition();
+            spawnedHuman.transform.position = GetSpawnPosition(stickman.transform);
             spawnedHuman.LastDublicateZone = this;
         }
        
-        human.LastDublicateZone = this;
+        stickman.LastDublicateZone = this;
     }
 }
