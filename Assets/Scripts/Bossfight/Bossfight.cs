@@ -3,7 +3,6 @@ using UnityEngine;
 public class Bossfight : MonoBehaviour
 {
     [SerializeField] private Boss _boss;
-    [SerializeField] private float _speed;
 
     [SerializeField] private IMover _toBossMover;
 
@@ -14,7 +13,6 @@ public class Bossfight : MonoBehaviour
 
     public void MoveStickmanToBoss(Stickman stickman)
     {
-        stickman.Speed = _speed;
         stickman.Mover = _toBossMover;
     }
 }

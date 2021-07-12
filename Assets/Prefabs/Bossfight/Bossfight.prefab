@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 5358902713436001542}
   - component: {fileID: 5358902713436001543}
   - component: {fileID: 5358902713436001560}
+  - component: {fileID: 4056806425917664047}
   m_Layer: 0
   m_Name: Enter
   m_TagString: Untagged
@@ -102,7 +103,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5358902713436001541}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -11.5}
+  m_LocalPosition: {x: 0, y: 2.01, z: -9.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5358902715139524109}
@@ -119,8 +120,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.925228, y: 4, z: 3.242447}
-  m_Center: {x: -0.022386074, y: 2, z: -0.14746857}
+  m_Size: {x: 3, y: 3, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5358902713436001560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,7 +139,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5358902715139524110}
         m_TargetAssemblyTypeName: Bossfight, Assembly-CSharp
-        m_MethodName: AddStickmanToFight
+        m_MethodName: MoveStickmanToBoss
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -148,6 +149,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4056806425917664047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5358902713436001541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93295a611ba25e34281ff103b851b400, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5358902713487968722
 GameObject:
   m_ObjectHideFlags: 0
@@ -500,9 +513,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90b52c02fd648e649a7f8b459a5cd613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _boss: {fileID: 8261549757864928908}
-  _speed: 4
-  _stopDistance: 1.5
+  _boss: {fileID: 1058395579532467524}
+  _speed: 0
 --- !u!114 &7576090718012789732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -530,8 +542,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _value: 1
-  _max: 1
+  _value: 30
+  _max: 30
 --- !u!1001 &3376191951817579751
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -539,6 +551,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5358902715139524109}
     m_Modifications:
+    - target: {fileID: 5088739412781166398, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
+      propertyPath: _damage
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 5288129358057232500, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
       propertyPath: DamageRecieved.m_PersistentCalls.m_Calls.Array.size
       value: 1
