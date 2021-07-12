@@ -14,7 +14,7 @@ public class StickmenMover : MonoBehaviour
 
     private void Start()
     {
-        foreach (var stickman in _stickmen.StickmenList)
+        foreach (var stickman in _stickmen.List)
         {
             stickman.Mover = _defaultMover;
         }
@@ -22,21 +22,14 @@ public class StickmenMover : MonoBehaviour
 
     private void Update()
     {
-        foreach (var stickman in _stickmen.StickmenList)
+        foreach (var stickman in _stickmen.List)
         {
             stickman.Move();       
         }
     }
 
-    public void SetStickmanMover()
+    public void SetStickmanMover(Stickman stickman)
     {
-
-    }
-
-    private void Move(IMovable movable)
-    {
-        Vector3 velocity = movable.Rigidbody.velocity * movable.Speed;
-        velocity.z = _forwardSpeed;
-        movable.Rigidbody.velocity = velocity * movable.Speed;
+        stickman.Mover = _defaultMover;
     }
 }

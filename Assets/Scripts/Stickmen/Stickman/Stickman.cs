@@ -6,7 +6,7 @@ public class Stickman : MonoBehaviour, IDublicatable, IRecyclable<Stickman>, IMo
     [SerializeField] private bool _isStopped;
     [SerializeField] private StickmenFactory _factory;
 
-    [field: SerializeField] public bool IsFighting { get; set; }
+    public int AimsCount { get; set; }
     public Health Health { get; set; }
     
     public DublicatingZone LastDublicateZone { get; set; }   
@@ -36,8 +36,6 @@ public class Stickman : MonoBehaviour, IDublicatable, IRecyclable<Stickman>, IMo
     public void Reset()
     {
         Health.HealToMax();
-        Speed = 1;
-        IsFighting = false;
         LastDublicateZone = null;
     }
 }

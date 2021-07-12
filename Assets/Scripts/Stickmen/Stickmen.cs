@@ -1,21 +1,39 @@
 using UnityEngine;
-using System.Linq;
+using UnityEngine.Events;
 using System.Collections.Generic;
 
 public class Stickmen : MonoBehaviour
 {
+    [SerializeField] private UnityEvent<Stickman> _stickmanAdded;
+
     [SerializeField] private List<Stickman> _startStickmen;
 
-    public List<Stickman> StickmenList { get; set; }
+    private List<Stickman> _list;
+
+    public List<Stickman> List { get => _list; }
     public Stickman First { get; set; }
 
     private void Awake()
     {
-        StickmenList = new List<Stickman>();
+        _list = new List<Stickman>();
 
         foreach (var stickman in _startStickmen)
         {
-            StickmenList.Add(stickman);
+            AddStickman(stickman);
         }     
+    }
+
+    public void AddStickman(Stickman stickman)
+    {
+        if(!_list.Contains(stickman))
+        {
+            _list.Add(stickman);
+            if (_stickmanAdded != null) _stickmanAdded.Invoke(stickman);
+        }
+    }
+
+    public void RemoveStickman(Stickman stickman)
+    {
+        _list.Remove(stickman);
     }
 }

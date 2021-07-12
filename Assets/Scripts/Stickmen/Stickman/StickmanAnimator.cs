@@ -4,8 +4,8 @@ using UnityEngine;
 public class StickmanAnimator : MonoBehaviour
 {
     [SerializeField] private Animator _animator;
-    [SerializeField] private string _speedParameterName;
     [SerializeField] private string _stoppedParameterName;
+    [SerializeField] private string _fightingParameterName;
 
     private Stickman _stickman;
 
@@ -16,7 +16,7 @@ public class StickmanAnimator : MonoBehaviour
 
     private void Update()
     {
-        _animator.SetFloat(_speedParameterName, _stickman.IsStopped);
-        _animator.SetBool(_stoppedParameterName, _stickman.IsFighting);
+        _animator.SetBool(_stoppedParameterName, _stickman.Mover.AtDestination);
+        _animator.SetBool(_fightingParameterName, _stickman.AimsCount > 0);
     }
 }

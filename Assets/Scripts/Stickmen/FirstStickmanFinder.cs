@@ -36,7 +36,7 @@ public class FirstStickmanFinder : MonoBehaviour
 
     public bool GetFirstStickman(out Stickman stickman)
     {
-        List<Stickman> stickmen = _stickmen.StickmenList;
+        List<Stickman> stickmen = _stickmen.List;
 
         if (stickmen == null || stickmen.Count == 0)
         {
