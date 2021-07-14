@@ -7,8 +7,8 @@ public class LevelTimeManager : MonoBehaviour
 
     private void Awake()
     {
-        Time.timeScale = _defaultTimeScale;
-        Time.fixedDeltaTime = _defaultFixedDeltaTime;
+        Time.timeScale = 0;
+        Time.fixedDeltaTime = 0;
     }
 
     public void StopTime()

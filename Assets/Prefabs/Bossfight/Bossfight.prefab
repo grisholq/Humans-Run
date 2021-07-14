@@ -86,8 +86,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5358902713436001542}
   - component: {fileID: 5358902713436001543}
-  - component: {fileID: 5358902713436001560}
   - component: {fileID: 4056806425917664047}
+  - component: {fileID: 1228006069}
   m_Layer: 0
   m_Name: Enter
   m_TagString: Untagged
@@ -122,33 +122,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3, y: 3, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5358902713436001560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5358902713436001541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b2b911282f73d14a87a850576adc698, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StickmanEnteredArena:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5358902715139524110}
-        m_TargetAssemblyTypeName: Bossfight, Assembly-CSharp
-        m_MethodName: MoveStickmanToBoss
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &4056806425917664047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +134,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93295a611ba25e34281ff103b851b400, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1228006069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5358902713436001541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3458898e9b0da854fbb04e9b159bcc2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speedMultiplier: 0.7
+  _target: {fileID: 8261549757864928908}
 --- !u!1 &5358902713487968722
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,8 +500,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90b52c02fd648e649a7f8b459a5cd613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _boss: {fileID: 1058395579532467524}
-  _speed: 0
+  PlayerWonBossfight:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Level, Assembly-CSharp
+        m_MethodName: Win
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7576090718012789732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -542,6 +542,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5358902715139524110}
+        m_TargetAssemblyTypeName: Bossfight, Assembly-CSharp
+        m_MethodName: PlayerHaveWon
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _value: 30
   _max: 30
 --- !u!1001 &3376191951817579751
@@ -551,9 +563,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5358902715139524109}
     m_Modifications:
+    - target: {fileID: 1881011279839137686, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1881011279839137686, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
+      propertyPath: m_Size.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335830665095725475, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
+      propertyPath: _deathParticlesColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335830665095725475, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
+      propertyPath: _deathParticlesColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3046086297253040223, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.423
+      objectReference: {fileID: 0}
+    - target: {fileID: 3046086297253040225, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3046086297253040225, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
+      propertyPath: m_Size.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5088739412781166398, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
       propertyPath: _damage
-      value: 0.1
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 5288129358057232500, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
       propertyPath: DamageRecieved.m_PersistentCalls.m_Calls.Array.size
@@ -601,7 +641,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6664288455358315115, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99691737
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6664288455358315115, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
       propertyPath: m_LocalRotation.x
@@ -609,7 +649,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6664288455358315115, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.078459114
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6664288455358315115, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
       propertyPath: m_LocalRotation.z
@@ -621,11 +661,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6664288455358315115, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6664288455358315115, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8932135417012368600, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
+      propertyPath: AimsCountChanged.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8932135417012368600, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
+      propertyPath: AimsCountChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1058395579532467524}
+    - target: {fileID: 8932135417012368600, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
+      propertyPath: AimsCountChanged.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8932135417012368600, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
+      propertyPath: AimsCountChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_AimsCount
+      objectReference: {fileID: 0}
+    - target: {fileID: 8932135417012368600, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
+      propertyPath: AimsCountChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Boss, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8932135417012368600, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
+      propertyPath: AimsCountChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
