@@ -1135,7 +1135,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 338135056}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 3413c1f1c714cee41b2bc349dd1b08c1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -2198,7 +2198,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 601534718}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 3413c1f1c714cee41b2bc349dd1b08c1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -3659,17 +3659,9 @@ PrefabInstance:
       value: Stickman
       objectReference: {fileID: 0}
     - target: {fileID: 3425113938940301881, guid: 60eccab2cc1f2a44ebedc5db37f8ade7, type: 3}
-      propertyPath: _speed
-      value: 12.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3425113938940301881, guid: 60eccab2cc1f2a44ebedc5db37f8ade7, type: 3}
       propertyPath: _factory
       value: 
       objectReference: {fileID: 78213316}
-    - target: {fileID: 8952329294039816455, guid: 60eccab2cc1f2a44ebedc5db37f8ade7, type: 3}
-      propertyPath: _damage
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60eccab2cc1f2a44ebedc5db37f8ade7, type: 3}
 --- !u!1001 &1236455283
