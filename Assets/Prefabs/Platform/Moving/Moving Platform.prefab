@@ -77,9 +77,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 654b86c84dcb1e84da77ad0ece33e8a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  start: {fileID: 5160560889440802878}
-  end: {fileID: 5160560890609331891}
-  movingPart: {fileID: 5514305894640587368}
+  _start: {fileID: 5160560889440802878}
+  _end: {fileID: 5160560890609331891}
+  _movingPart: {fileID: 5514305894640587368}
 --- !u!1 &5160560890609331890
 GameObject:
   m_ObjectHideFlags: 0
