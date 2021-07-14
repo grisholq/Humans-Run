@@ -4,12 +4,12 @@ using System.Collections.Generic;
 public class PlatformsState : MonoBehaviour
 {
     [SerializeField] private float _changeSpeed;
-    
+
     private float _state;
 
     private List<Platform> _platforms;
 
-    public float State    
+    public float State
     {
         get => _state;
         set
@@ -17,8 +17,8 @@ public class PlatformsState : MonoBehaviour
             _state = value;
             _state = Mathf.Clamp(_state, 0, 1);
         }
-    } 
-    
+    }
+
     public bool Hold { get; set; }
 
     private void Awake()
@@ -28,12 +28,17 @@ public class PlatformsState : MonoBehaviour
 
     void Update()
     {
-        Hold = Input.GetMouseButton(0);
+        Hold = IsHolding();
         State += Time.deltaTime * (Hold ? 1 : -1) * _changeSpeed;
 
         foreach (var platform in _platforms)
         {
             platform.SetState(State, Hold);
         }
+    }
+
+    private bool IsHolding()
+    {
+        return Input.touchCount > 0 || Input.GetMouseButton(0);
     }
 }

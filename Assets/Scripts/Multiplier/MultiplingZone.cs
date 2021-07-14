@@ -19,7 +19,7 @@ public class MultiplingZone : DublicatingZone
     {
         if (stickman.LastDublicateZone == this) return;
 
-        for (int i = 0; i < _multiplier; i++)
+        for (int i = 0; i < _multiplier - 1; i++)
         {
             Stickman spawnedHuman = _stickmanFactory.Create();
             spawnedHuman.transform.position = GetSpawnPosition(stickman.transform);

@@ -8,41 +8,17 @@ public class CameraFollower : MonoBehaviour
     [SerializeField] private Vector3 _offset;
     [SerializeField] private Vector3 _eulers;
 
-    [SerializeField] private Transform _followed;
-    [SerializeField] private bool _ignoreX;
+    public Vector3 Position { get; set; }
 
     private void Start()
     {
-        transform.eulerAngles = _eulers;
-
-        if(_followed != null)
-        {
-            transform.position = _followed.transform.position + _offset;
-        }   
+        Position = transform.position;
+        transform.eulerAngles = _eulers;  
     }
 
     private void LateUpdate()
     {
-        if(_followed != null)
-        {
-            if (Vector3.Distance(transform.position, _followed.transform.position + _offset) <= _minDistance) return;
-            transform.position = Vector3.MoveTowards(transform.position, GetFollowedPosition() + _offset, _speed);
-        }
-    }
-    public void SetFollowed(Transform followed)
-    {
-        _followed = followed;
-    }
-
-    private Vector3 GetFollowedPosition()
-    {
-        if(_ignoreX)
-        {
-            Vector3 position = _followed.position;
-            position.x = 0;
-            return position;
-        }
-
-        return _followed.position;
+        if (Vector3.Distance(transform.position, Position + _offset) <= _minDistance) return;
+        transform.position = Vector3.MoveTowards(transform.position, Position + _offset, _speed * Time.deltaTime);
     }
 }

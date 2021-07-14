@@ -4,7 +4,7 @@ public class ToTargetMover : IMover
 {
     private Transform _target;
 
-    private const float _stopDistance = 1.5f;
+    private const float _stopDistance = 1.7f;
 
     private bool _atDestination;
 

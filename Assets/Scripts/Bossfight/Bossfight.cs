@@ -1,18 +1,12 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Bossfight : MonoBehaviour
 {
-    [SerializeField] private Boss _boss;
+    [SerializeField] private UnityEvent PlayerWonBossfight;
 
-    [SerializeField] private IMover _toBossMover;
-
-    private void Awake()
+    public void PlayerHaveWon()
     {
-        _toBossMover = new ToTargetMover(_boss.transform);
-    }
-
-    public void MoveStickmanToBoss(Stickman stickman)
-    {
-        stickman.Mover = _toBossMover;
+        if(PlayerWonBossfight != null) PlayerWonBossfight.Invoke();
     }
 }

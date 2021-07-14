@@ -4,9 +4,8 @@ using System.Collections.Generic;
 
 public class Stickmen : MonoBehaviour
 {
-    [SerializeField] private UnityEvent<Stickman> _stickmanAdded;
-
-    [SerializeField] private List<Stickman> _startStickmen;
+    [SerializeField] private UnityEvent<Stickman> StickmanAdded;
+    [SerializeField] private UnityEvent NoStickmenLeft;
 
     private List<Stickman> _list;
 
@@ -16,8 +15,9 @@ public class Stickmen : MonoBehaviour
     private void Awake()
     {
         _list = new List<Stickman>();
+        Stickman[] startingStickmen = GetComponentsInChildren<Stickman>();
 
-        foreach (var stickman in _startStickmen)
+        foreach (var stickman in startingStickmen)
         {
             AddStickman(stickman);
         }     
@@ -28,12 +28,16 @@ public class Stickmen : MonoBehaviour
         if(!_list.Contains(stickman))
         {
             _list.Add(stickman);
-            if (_stickmanAdded != null) _stickmanAdded.Invoke(stickman);
+            if (StickmanAdded != null) StickmanAdded.Invoke(stickman);
         }
     }
 
     public void RemoveStickman(Stickman stickman)
     {
         _list.Remove(stickman);
+        if(_list.Count == 0)
+        {
+            if(NoStickmenLeft != null)NoStickmenLeft.Invoke();
+        }
     }
 }

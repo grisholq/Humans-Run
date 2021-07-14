@@ -5,6 +5,7 @@ public class DublicatingZone : MonoBehaviour
 {
     [SerializeField] protected TextMeshPro _zoneInfo;
     [SerializeField] protected StickmenFactory _stickmanFactory;
+    [SerializeField] protected float _spawnRandomness;
     
     protected Bounds _spawnBounds;
 
@@ -48,10 +49,10 @@ public class DublicatingZone : MonoBehaviour
     {
         Vector3 position;
 
-        position.x = _spawnBounds.center.x + Random.Range(-_spawnBounds.size.x / 2, _spawnBounds.size.x / 2);
-        position.y = origin.position.y;
-        position.z = _spawnBounds.center.z + Random.Range(-_spawnBounds.size.z / 2, _spawnBounds.size.z / 2);
-
-        return position;
+        //position.x = _spawnBounds.center.x + Random.Range(-_spawnBounds.size.x / 2, _spawnBounds.size.x / 2);
+        //position.y = origin.position.y;
+        //position.z = _spawnBounds.center.z + Random.Range(-_spawnBounds.size.z / 2, _spawnBounds.size.z / 2);
+        
+        return origin.position + new Vector3(1, 0, 1) * _spawnRandomness;
     }
 }

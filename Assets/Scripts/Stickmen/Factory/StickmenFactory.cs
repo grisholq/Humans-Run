@@ -20,6 +20,7 @@ public class StickmenFactory : MonoBehaviour, IFactory<Stickman>
     {
         Stickman stickman = GetStickman();
 
+        stickman.transform.SetParent(transform);
         stickman.gameObject.SetActive(true);
         stickman.Factory = this;
         _stickmen.AddStickman(stickman);

@@ -7,13 +7,12 @@ public class StickmanDeathHandler : MonoBehaviour
 
     public void Die()
     {
-        Stickman stickman = GetComponent<Stickman>();
-
-        stickman.Factory.Recycle(stickman);
-
         ParticleSystem particles = Instantiate(_particles);
         particles.startColor = _particlesColor;
         particles.transform.position = transform.position;
         Destroy(particles.gameObject, 1f);
+
+        Stickman stickman = GetComponent<Stickman>();
+        stickman.Factory.Recycle(stickman);    
     }
 }
