@@ -3,16 +3,16 @@ using UnityEngine;
 public class ToTargetMover : IMover
 {
     private Transform _target;
-
-    private const float _stopDistance = 1.7f;
+    private float _stopDistance;
 
     private bool _atDestination;
 
     public bool AtDestination { get => _atDestination; }
 
-    public ToTargetMover(Transform target)
+    public ToTargetMover(Transform target, float stopDistance)
     {
         _target = target;
+        _stopDistance = stopDistance;
     }
 
     public void Move(IMovable movable)

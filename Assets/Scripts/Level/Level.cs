@@ -10,6 +10,7 @@ public class Level : MonoBehaviour
 
     private void Awake()
     {
+        Application.targetFrameRate = 60;
         LevelsLoader.Instance.Current = _levelData;
     }
 

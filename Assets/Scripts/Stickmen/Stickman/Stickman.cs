@@ -3,6 +3,7 @@ using UnityEngine;
 public class Stickman : MonoBehaviour, IDublicatable, IRecyclable<Stickman>, IMovable
 {
     [SerializeField] private float _speed;
+    [SerializeField] private float _speedRandomness;
     [SerializeField] private bool _isStopped;
     [SerializeField] private StickmenFactory _factory;
 
@@ -26,6 +27,8 @@ public class Stickman : MonoBehaviour, IDublicatable, IRecyclable<Stickman>, IMo
 
         Transform = transform;
         Rigidbody = GetComponent<Rigidbody>();
+
+        _speed += Random.Range(-_speedRandomness, _speedRandomness);
     }
 
     public void Move()

@@ -77,9 +77,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 654b86c84dcb1e84da77ad0ece33e8a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _start: {fileID: 5160560889440802878}
-  _end: {fileID: 5160560890609331891}
-  _movingPart: {fileID: 5514305894640587368}
+  start: {fileID: 5160560889440802878}
+  end: {fileID: 5160560890609331891}
+  movingPart: {fileID: 5514305894640587368}
 --- !u!1 &5160560890609331890
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,6 +267,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7669465226099552994, guid: 4f10ea0698ffe8c4fb5d46d2d037a5fd, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 22134b75b97d0284f8108d67fcb94a91, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f10ea0698ffe8c4fb5d46d2d037a5fd, type: 3}
 --- !u!4 &1285737058447432231 stripped

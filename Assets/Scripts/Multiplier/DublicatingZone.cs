@@ -47,12 +47,11 @@ public class DublicatingZone : MonoBehaviour
 
     protected Vector3 GetSpawnPosition(Transform origin)
     {
-        Vector3 position;
+        Vector3 position = origin.position;
 
-        //position.x = _spawnBounds.center.x + Random.Range(-_spawnBounds.size.x / 2, _spawnBounds.size.x / 2);
-        //position.y = origin.position.y;
-        //position.z = _spawnBounds.center.z + Random.Range(-_spawnBounds.size.z / 2, _spawnBounds.size.z / 2);
-        
-        return origin.position + new Vector3(1, 0, 1) * _spawnRandomness;
+        position.x += Random.Range(-_spawnRandomness, _spawnRandomness);
+        position.z += Random.Range(-_spawnRandomness, _spawnRandomness);
+
+        return position;
     }
 }
