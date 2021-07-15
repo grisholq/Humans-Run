@@ -8,7 +8,7 @@ public class PhysicsMovingPlatform : Platform
 
     public override void SetState(float state, bool hold)
     {
-        Vector3 delta = (_end.position - _start.position) * state;
+        Vector3 delta = (_end.position - _start.position) * state;       
         Vector3 position = _start.position + delta;
 
         _platformRigidbody.MovePosition(position);
