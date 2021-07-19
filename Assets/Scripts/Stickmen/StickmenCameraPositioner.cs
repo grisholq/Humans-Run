@@ -44,7 +44,7 @@ public class StickmenCameraPositioner : MonoBehaviour
         }
 
         Vector3 position = GetAveragePosition(_firstStickmen);
-        _follower.Position = position;
+        _follower.Target = position;
     }
 
     private void SetFirstStickmen()

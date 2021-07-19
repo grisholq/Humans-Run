@@ -3,19 +3,39 @@ using UnityEngine;
 public class CameraFollower : MonoBehaviour
 {   
     [SerializeField] private float _speed;
-    [SerializeField] private float _minDistance;
-   
+    [SerializeField] private float _minDistance; 
     [SerializeField] private Vector3 _offset;
-    public Vector3 Position { get; set; }
+
+    public Vector3 Target { get; set; }
 
     private void Start()
     {
-        Position = transform.position;
+        Target = transform.position;
     }
 
     private void LateUpdate()
     {
-        if (Vector3.Distance(transform.position, Position + _offset) <= _minDistance) return;
-        transform.position = Vector3.MoveTowards(transform.position, Position + _offset, _speed * Time.deltaTime);
+        if (!ReachedTarget())
+        {
+            MoveToTarget();
+        }       
+    }
+
+    private void MoveToTarget()
+    {
+        float speed = _speed * Time.deltaTime;
+        Vector3 position = Target + _offset;
+        position.x = 0;
+        transform.position = Vector3.MoveTowards(transform.position, position, speed);
+    }
+
+    private bool ReachedTarget()
+    {
+        return GetDistanceToTarget() <= _minDistance;
+    }
+
+    private float GetDistanceToTarget()
+    {
+        return Vector3.Distance(transform.position, Target + _offset);
     }
 }
