@@ -34,7 +34,6 @@ public class StickmanAnimator : MonoBehaviour
 
     private bool IsFalling()
     {
-        Vector3 velocity = _stickman.Rigidbody.velocity;
-        return velocity.y >= 1 || velocity.y <= -1;
+        return !_stickman.OnFloor;
     }
 }

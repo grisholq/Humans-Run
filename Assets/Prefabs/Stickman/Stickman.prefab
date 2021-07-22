@@ -73,6 +73,67 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &55127458207825616
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4871543899083329273}
+  - component: {fileID: 187354139278433637}
+  m_Layer: 6
+  m_Name: FloorChecker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4871543899083329273
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 55127458207825616}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.826, z: -0.357}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 47811285960663871}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &187354139278433637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 55127458207825616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81999ee0535575f479fd7c7e0a742443, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkTime: 0.1
+  ignoredLayer: 64
+  onFloorDistance: 2
+  OnFloorStateChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3425113938940301881}
+        m_TargetAssemblyTypeName: Stickman, Assembly-CSharp
+        m_MethodName: set_OnFloor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &348052670083191516
 GameObject:
   m_ObjectHideFlags: 0
@@ -82,8 +143,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 212562021152905084}
-  - component: {fileID: 1385619887875620091}
-  - component: {fileID: 6935194455708581377}
   - component: {fileID: 569390096695177763}
   m_Layer: 6
   m_Name: WallChecker
@@ -106,35 +165,6 @@ Transform:
   m_Father: {fileID: 47811285960663871}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1385619887875620091
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 348052670083191516}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.6, y: 0.6, z: 4.282191}
-  m_Center: {x: 0, y: 0, z: 0.8887532}
---- !u!54 &6935194455708581377
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 348052670083191516}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
 --- !u!114 &569390096695177763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,8 +177,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba2b724965f635479a2e4a3de49badc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _checkLayers: 0a000000
-  NearedToWall:
+  checkTime: 0.3
+  wallsLayer: 1024
+  wallDistance: 5
+  HasWallOnWay:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3425113938940301881}
@@ -161,7 +193,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 3425113938940301881}
         m_TargetAssemblyTypeName: Stickman, Assembly-CSharp
@@ -175,7 +207,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  NoWallOnWay:
+  NoWallsOnWay:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3425113938940301881}
@@ -291,6 +323,7 @@ Transform:
   - {fileID: 683768866273253763}
   - {fileID: 1825312001}
   - {fileID: 212562021152905084}
+  - {fileID: 4871543899083329273}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -335,7 +368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54d69a82ec8f63745912a5e1da1cc4b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 8.5
+  _speed: 7.5
   _speedRandomness: 0.1
   _isStopped: 0
   _factory: {fileID: 0}

@@ -8,6 +8,7 @@ public class Stickman : MonoBehaviour, IDublicatable, IRecyclable<Stickman>, IMo
     [SerializeField] private StickmenFactory _factory;
 
     public int AimsCount { get; set; }
+    public bool OnFloor { get; set; }
     public Health Health { get; set; }
     
     public DublicatingZone LastDublicateZone { get; set; }   
@@ -21,6 +22,7 @@ public class Stickman : MonoBehaviour, IDublicatable, IRecyclable<Stickman>, IMo
 
     private void Awake()
     {
+        OnFloor = true;
         Factory = _factory;
        
         Health = GetComponent<Health>();
@@ -43,6 +45,7 @@ public class Stickman : MonoBehaviour, IDublicatable, IRecyclable<Stickman>, IMo
 
     public void Reset()
     {
+        IsStopped = false;
         Health.HealToMax();
         LastDublicateZone = null;
     }

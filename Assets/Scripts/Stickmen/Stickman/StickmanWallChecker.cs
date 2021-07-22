@@ -1,61 +1,70 @@
 using UnityEngine;
 using UnityEngine.Events;
-using System.Collections.Generic;
+using System.Collections;
 
 public class StickmanWallChecker : MonoBehaviour
 {
-    [SerializeField] private List<int> _checkLayers;
+    [SerializeField] private float checkTime;
+    [SerializeField] private int wallsLayer;
+    [SerializeField] private float wallDistance;
 
-    [SerializeField] private UnityEvent NearedToWall;
-    [SerializeField] private UnityEvent NoWallOnWay;
+    [SerializeField] private UnityEvent HasWallOnWay;
+    [SerializeField] private UnityEvent NoWallsOnWay;
+
+    private Coroutine WallCheckCoroutine;
 
     private bool _hasWall;
 
-    public bool HasWall
+    private void OnEnable()
     {
-        get
-        {
-            return _hasWall;
-        }
+        _hasWall = true;
+        WallCheckCoroutine = StartCoroutine(CheckingWall());
+    }
 
-        set
+    private void OnDisable()
+    {
+        _hasWall = false;
+        StopCoroutine(WallCheckCoroutine);
+    }
+
+    private IEnumerator CheckingWall()
+    {
+        while (true)
         {
-            if(_hasWall != value)
+            bool hasWall = HasWall();
+
+            if (_hasWall != hasWall)
             {
-                if(_hasWall == true)
+                if(_hasWall)
                 {
-                    NoWallOnWay.Invoke();
+                    if (NoWallsOnWay != null) NoWallsOnWay.Invoke();
                 }
                 else
                 {
-                    NearedToWall.Invoke();
+                    if (HasWallOnWay != null) HasWallOnWay.Invoke();
                 }
 
-                _hasWall = value;
+                _hasWall = hasWall;            
             }
+
+            yield return new WaitForSeconds(checkTime + Random.Range(0, 0.05f));
         }
     }
 
-
-    private void Awake()
+    public bool HasWall()
     {
-        _hasWall = false;
+        return GetWallDistance() <= wallDistance;
     }
 
-    private void OnTriggerStay(Collider other)
+    private float GetWallDistance()
     {
-        if (_checkLayers.Contains(other.gameObject.layer))
-        {
-            
-            HasWall = true;
-        }        
-    }
+        RaycastHit hit;
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (_checkLayers.Contains(other.gameObject.layer))
+        if (Physics.Raycast(transform.position, Vector3.forward, out hit, 10f, wallsLayer, QueryTriggerInteraction.Ignore))
         {
-            HasWall = false;
+            return hit.distance;
         }
+
+        return wallDistance + 1;
     }
 }

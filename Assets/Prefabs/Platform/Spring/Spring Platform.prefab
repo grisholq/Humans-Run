@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1312366621390393345}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1312366621864209642}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1312366621864209641}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.273, z: 0}
+  m_LocalPosition: {x: 0, y: 1.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7648167124217518820}
@@ -75,7 +75,20 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 122
-  m_CollisionDetection: 2
+  m_CollisionDetection: 1
+--- !u!65 &1782990462
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6619569003275138552}
+  m_Material: {fileID: 13400000, guid: 22134b75b97d0284f8108d67fcb94a91, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5769072, y: 1.197623, z: 0.99321127}
+  m_Center: {x: 0, y: 0.0047268104, z: -0.3487987}
 --- !u!1 &7648167124217518818
 GameObject:
   m_ObjectHideFlags: 0
@@ -86,7 +99,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7648167124217518820}
   - component: {fileID: 7648167124217518819}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spring Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +115,7 @@ Transform:
   m_GameObject: {fileID: 7648167124217518818}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 11.84, y: 7.22, z: 128}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 1, z: 1.1889005}
   m_Children:
   - {fileID: 1312366621390393345}
   - {fileID: 1312366621864209642}
@@ -123,11 +136,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6432b306e22550488da9d130c20698d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _platform: {fileID: 0}
-  _platformRigidbody: {fileID: 0}
-  _holdVelocity: {x: 0, y: 40, z: 0}
-  _releaseVelocity: {x: 0, y: -40, z: 0}
-  _stopDistance: 0.08
+  _platform: {fileID: 5807037965130985282}
+  _platformRigidbody: {fileID: 2530423820456933918}
+  _holdVelocity: {x: 0, y: 25, z: 0}
+  _releaseVelocity: {x: 0, y: -25, z: 0}
+  _stopDistance: 0.1
   _start: {fileID: 1312366621390393345}
   _end: {fileID: 1312366621864209642}
 --- !u!1001 &471713015222435324
@@ -151,7 +164,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1040941087986910805, guid: 21ed684bfa146494c91366449dbec5c8, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.569664
+      value: 0.605268
       objectReference: {fileID: 0}
     - target: {fileID: 1040941087986910805, guid: 21ed684bfa146494c91366449dbec5c8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -198,12 +211,24 @@ PrefabInstance:
       value: JumperGround
       objectReference: {fileID: 0}
     - target: {fileID: 7090798395627736566, guid: 21ed684bfa146494c91366449dbec5c8, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7090798395627736566, guid: 21ed684bfa146494c91366449dbec5c8, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7090798395627736566, guid: 21ed684bfa146494c91366449dbec5c8, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7128938429893413891, guid: 21ed684bfa146494c91366449dbec5c8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8625
+      objectReference: {fileID: 0}
+    - target: {fileID: 7612423776564532921, guid: 21ed684bfa146494c91366449dbec5c8, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7612423776564532921, guid: 21ed684bfa146494c91366449dbec5c8, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -230,7 +255,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 543012575164616903, guid: a6213de50dfe4024daf5b173a9801397, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.9762
+      value: 1.8749199
       objectReference: {fileID: 0}
     - target: {fileID: 543012575164616903, guid: a6213de50dfe4024daf5b173a9801397, type: 3}
       propertyPath: m_LocalPosition.x
@@ -238,7 +263,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 543012575164616903, guid: a6213de50dfe4024daf5b173a9801397, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.244
+      value: -0.257
       objectReference: {fileID: 0}
     - target: {fileID: 543012575164616903, guid: a6213de50dfe4024daf5b173a9801397, type: 3}
       propertyPath: m_LocalPosition.z
@@ -275,6 +300,10 @@ PrefabInstance:
     - target: {fileID: 919573955628599933, guid: a6213de50dfe4024daf5b173a9801397, type: 3}
       propertyPath: m_Name
       value: Jumper
+      objectReference: {fileID: 0}
+    - target: {fileID: 919573955628599933, guid: a6213de50dfe4024daf5b173a9801397, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1711939414652758952, guid: a6213de50dfe4024daf5b173a9801397, type: 3}
       propertyPath: m_Materials.Array.data[0]
