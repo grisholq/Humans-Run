@@ -38,8 +38,7 @@ public class Stickman : MonoBehaviour, IDublicatable, IRecyclable<Stickman>, IMo
     
     public void Stop()
     {
-        Vector3 velocity = Rigidbody.velocity;
-        velocity.z = 0;
+        Rigidbody.velocity = Vector3.zero;
     }
 
     public void Reset()

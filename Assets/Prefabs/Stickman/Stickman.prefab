@@ -91,7 +91,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &212562021152905084
 Transform:
   m_ObjectHideFlags: 0
@@ -117,8 +117,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.6, y: 0.6, z: 0.6}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.6, y: 0.6, z: 4.282191}
+  m_Center: {x: 0, y: 0, z: 0.8887532}
 --- !u!54 &6935194455708581377
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -147,10 +147,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bba2b724965f635479a2e4a3de49badc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _checkLayers: 0800000009000000
+  _checkLayers: 0a000000
   NearedToWall:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 3425113938940301881}
+        m_TargetAssemblyTypeName: Stickman, Assembly-CSharp
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 3425113938940301881}
         m_TargetAssemblyTypeName: Stickman, Assembly-CSharp
         m_MethodName: set_IsStopped
