@@ -35,6 +35,12 @@ public class Stickman : MonoBehaviour, IDublicatable, IRecyclable<Stickman>, IMo
     {
         Mover.Move(this);
     }
+    
+    public void Stop()
+    {
+        Vector3 velocity = Rigidbody.velocity;
+        velocity.z = 0;
+    }
 
     public void Reset()
     {

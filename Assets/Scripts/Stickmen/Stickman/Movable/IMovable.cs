@@ -9,4 +9,5 @@ public interface IMovable
     bool IsStopped { get; set; }
 
     void Move();
+    void Stop();
 }

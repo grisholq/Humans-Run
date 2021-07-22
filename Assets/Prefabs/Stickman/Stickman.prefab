@@ -254,11 +254,9 @@ GameObject:
   - component: {fileID: 5102335239527487170}
   - component: {fileID: 1112657754497461353}
   - component: {fileID: 3425113938940301881}
-  - component: {fileID: 1662270811631782435}
   - component: {fileID: 8856300016320169532}
   - component: {fileID: 4372900873143969437}
   - component: {fileID: 5083830677621538031}
-  - component: {fileID: 5680246670784177661}
   m_Layer: 6
   m_Name: Stickman
   m_TagString: Untagged
@@ -325,50 +323,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54d69a82ec8f63745912a5e1da1cc4b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Reseted:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5083830677621538031}
-        m_TargetAssemblyTypeName: Health, Assembly-CSharp
-        m_MethodName: HealToMax
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 5680246670784177661}
-        m_TargetAssemblyTypeName: StickmanDublicateData, Assembly-CSharp
-        m_MethodName: Reset
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  _speed: 8.5
+  _speedRandomness: 0.1
+  _isStopped: 0
   _factory: {fileID: 0}
---- !u!114 &1662270811631782435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 626019924469498032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 722dfa37b5b24e249bdf1dae17429bc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <Rigidbody>k__BackingField: {fileID: 1112657754497461353}
-  <Transform>k__BackingField: {fileID: 47811285960663871}
-  <Speed>k__BackingField: 8.5
-  <IsStopped>k__BackingField: 0
 --- !u!114 &8856300016320169532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -428,19 +386,6 @@ MonoBehaviour:
         m_CallState: 2
   _value: 1
   _max: 1
---- !u!114 &5680246670784177661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 626019924469498032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c46b12d62f97b64fbc7e650ff565a48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dublicatableObject: {fileID: 47811285960663871}
 --- !u!1 &983603904417743722
 GameObject:
   m_ObjectHideFlags: 0
@@ -1019,18 +964,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Stickman, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
