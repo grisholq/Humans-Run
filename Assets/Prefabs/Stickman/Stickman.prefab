@@ -73,6 +73,111 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &348052670083191516
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 212562021152905084}
+  - component: {fileID: 1385619887875620091}
+  - component: {fileID: 6935194455708581377}
+  - component: {fileID: 569390096695177763}
+  m_Layer: 6
+  m_Name: WallChecker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &212562021152905084
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348052670083191516}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.7, z: 1.35}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 47811285960663871}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1385619887875620091
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348052670083191516}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6, y: 0.6, z: 0.6}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &6935194455708581377
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348052670083191516}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!114 &569390096695177763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348052670083191516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bba2b724965f635479a2e4a3de49badc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _checkLayers: 0800000009000000
+  NearedToWall:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3425113938940301881}
+        m_TargetAssemblyTypeName: Stickman, Assembly-CSharp
+        m_MethodName: set_IsStopped
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  NoWallOnWay:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3425113938940301881}
+        m_TargetAssemblyTypeName: Stickman, Assembly-CSharp
+        m_MethodName: set_IsStopped
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &469710867187068955
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,9 +254,11 @@ GameObject:
   - component: {fileID: 5102335239527487170}
   - component: {fileID: 1112657754497461353}
   - component: {fileID: 3425113938940301881}
+  - component: {fileID: 1662270811631782435}
   - component: {fileID: 8856300016320169532}
   - component: {fileID: 4372900873143969437}
   - component: {fileID: 5083830677621538031}
+  - component: {fileID: 5680246670784177661}
   m_Layer: 6
   m_Name: Stickman
   m_TagString: Untagged
@@ -173,6 +280,7 @@ Transform:
   - {fileID: 7215545688520310074}
   - {fileID: 683768866273253763}
   - {fileID: 1825312001}
+  - {fileID: 212562021152905084}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -187,7 +295,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 1.5, z: 0.3}
+  m_Size: {x: 0.35, y: 1.5, z: 0.35}
   m_Center: {x: 0, y: 0.79999995, z: 0}
 --- !u!54 &1112657754497461353
 Rigidbody:
@@ -217,10 +325,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54d69a82ec8f63745912a5e1da1cc4b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 10
-  _speedRandomness: 0.1
-  _isStopped: 0
+  Reseted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5083830677621538031}
+        m_TargetAssemblyTypeName: Health, Assembly-CSharp
+        m_MethodName: HealToMax
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5680246670784177661}
+        m_TargetAssemblyTypeName: StickmanDublicateData, Assembly-CSharp
+        m_MethodName: Reset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _factory: {fileID: 0}
+--- !u!114 &1662270811631782435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626019924469498032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 722dfa37b5b24e249bdf1dae17429bc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Rigidbody>k__BackingField: {fileID: 1112657754497461353}
+  <Transform>k__BackingField: {fileID: 47811285960663871}
+  <Speed>k__BackingField: 8.5
+  <IsStopped>k__BackingField: 0
 --- !u!114 &8856300016320169532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,6 +398,7 @@ MonoBehaviour:
   _animator: {fileID: 3657741236831741760}
   _stoppedParameterName: IsStopped
   _fightingParameterName: IsFighting
+  _fallingParameterName: IsFalling
 --- !u!114 &5083830677621538031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -279,6 +428,19 @@ MonoBehaviour:
         m_CallState: 2
   _value: 1
   _max: 1
+--- !u!114 &5680246670784177661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626019924469498032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c46b12d62f97b64fbc7e650ff565a48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dublicatableObject: {fileID: 47811285960663871}
 --- !u!1 &983603904417743722
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,14 +526,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1051810516238920189}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 99.999985, y: 100, z: 99.99999}
   m_Children:
   - {fileID: 349443641330769970}
   m_Father: {fileID: 7215545688520310074}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1116200761286162484
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,6 +1024,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Stickman, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5240295121327138094
 GameObject:
   m_ObjectHideFlags: 0
@@ -1132,7 +1306,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7510332388854500009}
-  m_LocalRotation: {x: 0.7071068, y: 0.0000012341344, z: 0.0000012341342, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.00033579968, y: 0.0008630306, z: -0.0010523607}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1278,7 +1452,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8363698204760918803}
-  m_LocalRotation: {x: 1, y: 1.1641143e-10, z: 0.00000009452922, w: 0.0000000754979}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 100.00002, y: 100.00002, z: 100.00002}
   m_Children: []
@@ -1294,7 +1468,7 @@ SkinnedMeshRenderer:
   m_GameObject: {fileID: 8363698204760918803}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1

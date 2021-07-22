@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
+    [SerializeField] private Transform _weaponParent;
     [SerializeField] private ParticleSystem _deathParticles;
     [SerializeField] private Color _deathParticlesColor;
 

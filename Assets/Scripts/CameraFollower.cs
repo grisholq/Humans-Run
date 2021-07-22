@@ -25,7 +25,7 @@ public class CameraFollower : MonoBehaviour
     {
         float speed = _speed * Time.deltaTime;
         Vector3 position = Target + _offset;
-        position.x = 0;
+        position.x = _offset.x;
         transform.position = Vector3.MoveTowards(transform.position, position, speed);
     }
 
