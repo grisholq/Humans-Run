@@ -31,7 +31,7 @@ public class ToTargetMover : IMover
             _atDestination = false; 
             
             Vector3 direction = GetTargetDirection(movable);
-            movable.Transform.position += direction * movable.Speed * Time.deltaTime;
+            movable.Transform.position += direction * movable.Speed * movable.SpeedMultiplier * Time.deltaTime;
         } 
     }
 

@@ -4,23 +4,19 @@ using UnityEngine;
 public class DublicatingZone : MonoBehaviour
 {
     [SerializeField] protected TextMeshPro _zoneInfo;
-    [SerializeField] protected StickmenFactory _stickmanFactory;
     [SerializeField] protected float _spawnRandomness;
     
-    protected Bounds _spawnBounds;
-
     private void Start()
     {
-        _spawnBounds = GetComponent<Collider>().bounds;
         Inizialize();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Stickman human;
-        if (other.gameObject.TryGetComponent(out human))
-        {           
-            HandleDublication(human);
+        IDublicatable dublicatable;
+        if (other.gameObject.TryGetComponent(out dublicatable))
+        {
+            HandleDublication(dublicatable);
         }
     }
 
@@ -34,15 +30,18 @@ public class DublicatingZone : MonoBehaviour
         return "+1";
     }
 
-    protected virtual void HandleDublication(Stickman stickman)
+    protected virtual void HandleDublication(IDublicatable dublicatable)
     {
-        if (stickman.LastDublicateZone == this) return;
+        if (dublicatable.LastDublicateZone == this) return;
 
-        stickman.LastDublicateZone = this;
+        dublicatable.LastDublicateZone = this;
+        CreateDublicate(dublicatable);
+    }
 
-        Stickman spawnedHuman = _stickmanFactory.Create();
-        spawnedHuman.transform.position = GetSpawnPosition(stickman.transform);
-        spawnedHuman.LastDublicateZone = this;
+    protected void CreateDublicate(IDublicatable dublicatable)
+    {
+        Transform dublicate = dublicatable.CreateDublicate();
+        dublicate.position = GetSpawnPosition(dublicate.transform);
     }
 
     protected Vector3 GetSpawnPosition(Transform origin)

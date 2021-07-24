@@ -16,7 +16,7 @@ public class DirectionMover : IMover
         if (movable.IsStopped) return;
 
         Vector3 velocity = movable.Rigidbody.velocity;
-        Vector3 additionalVelocity = _direction * movable.Speed;
+        Vector3 additionalVelocity = _direction * movable.Speed * movable.SpeedMultiplier;
 
         velocity.x = additionalVelocity.x == 0 ? velocity.x : additionalVelocity.x ;
         velocity.y = additionalVelocity.y == 0 ? velocity.y : additionalVelocity.y;

@@ -1,52 +1,48 @@
 using UnityEngine;
 
-public class Stickman : MonoBehaviour, IDublicatable, IRecyclable<Stickman>, IMovable
+public class Stickman : MonoBehaviour, IDublicatable, IDublicatablePart<Stickman>
 {
-    [SerializeField] private float _speed;
-    [SerializeField] private float _speedRandomness;
-    [SerializeField] private bool _isStopped;
-    [SerializeField] private StickmenFactory _factory;
-
     public int AimsCount { get; set; }
     public bool OnFloor { get; set; }
+    public StickmanDeathEffects DeathEffects { get; set; }
+    public StickmanMover Mover { get; set; }
     public Health Health { get; set; }
-    
-    public DublicatingZone LastDublicateZone { get; set; }   
-    public IFactory<Stickman> Factory { get; set; }
 
-    public IMover Mover { get; set; }
-    public Rigidbody Rigidbody { get; set; }
-    public Transform Transform { get; set; } 
-    public float Speed { get => _speed; set => _speed = value; }
-    public bool IsStopped { get => _isStopped; set => _isStopped = value; }
+    public DublicatingZone LastDublicateZone { get; set; }
+
+    public Transform CreateDublicate()
+    {
+        Stickman stickman = Instantiate(this);
+        this.Dublicate(stickman);
+        Mover.Dublicate(stickman.Mover);
+        Health.Dublicate(stickman.Health);
+        return stickman.transform;
+    }
+
+    public void Dublicate(Stickman to)
+    {
+        to.transform.parent = transform.parent;
+        to.AimsCount = AimsCount;
+        to.OnFloor = OnFloor;
+        to.LastDublicateZone = LastDublicateZone;
+    }
 
     private void Awake()
     {
         OnFloor = true;
-        Factory = _factory;
-       
+        DeathEffects = GetComponent<StickmanDeathEffects>();
+        Mover = GetComponent<StickmanMover>();
         Health = GetComponent<Health>();
-
-        Transform = transform;
-        Rigidbody = GetComponent<Rigidbody>();
-
-        _speed += Random.Range(-_speedRandomness, _speedRandomness);
     }
 
-    public void Move()
+    public void Die()
     {
-        Mover.Move(this);
-    }
-    
-    public void Stop()
-    {
-        Rigidbody.velocity = Vector3.zero;
+        DeathEffects.Play();
+        ReturnToPool();
     }
 
-    public void Reset()
+    private void ReturnToPool()
     {
-        IsStopped = false;
-        Health.HealToMax();
-        LastDublicateZone = null;
+        StickmenPool.Instance.Return(this);
     }
 }

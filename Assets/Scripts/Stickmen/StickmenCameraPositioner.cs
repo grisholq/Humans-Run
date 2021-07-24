@@ -6,13 +6,13 @@ public class StickmenCameraPositioner : MonoBehaviour
 {
     [SerializeField] private CameraFollower _follower;
    
-    private Stickmen _stickmen;
+    private StickmenStorage _stickmen;
     private List<Stickman> _firstStickmen;
     private IComparer<Stickman> _comparer;
 
     private void Awake()
     {
-        _stickmen = GetComponent<Stickmen>();
+        _stickmen = GetComponent<StickmenStorage>();
         _firstStickmen = new List<Stickman>();
         _comparer = new StickmanAxisZComparer();
     }
@@ -49,7 +49,7 @@ public class StickmenCameraPositioner : MonoBehaviour
 
     private void SetFirstStickmen()
     {
-        List<Stickman> stickmen = new List<Stickman>(_stickmen.List);
+        List<Stickman> stickmen = new List<Stickman>(_stickmen.Array);
 
         if (stickmen == null || stickmen.Count == 0)
         {

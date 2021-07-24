@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1825312000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.7, z: 0}
+  m_LocalPosition: {x: 0, y: 1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 47811285960663871}
@@ -43,8 +43,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.7793527, z: 0.7366476}
-  m_Center: {x: 0, y: 0.11032367, z: 0.1316762}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1825312003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,7 +98,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 55127458207825616}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.826, z: -0.357}
+  m_LocalPosition: {x: 0, y: 1.276, z: -0.433}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 47811285960663871}
@@ -159,7 +159,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 348052670083191516}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.9, z: 0}
+  m_LocalPosition: {x: 0, y: 1.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 47811285960663871}
@@ -179,12 +179,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkTime: 0.3
   wallsLayer: 1024
-  wallDistance: 5
+  wallDistance: 3
   HasWallOnWay:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3425113938940301881}
-        m_TargetAssemblyTypeName: Stickman, Assembly-CSharp
+      - m_Target: {fileID: 5437729326590373930}
+        m_TargetAssemblyTypeName: StickmanMover, Assembly-CSharp
         m_MethodName: Stop
         m_Mode: 1
         m_Arguments:
@@ -195,8 +195,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3425113938940301881}
-        m_TargetAssemblyTypeName: Stickman, Assembly-CSharp
+      - m_Target: {fileID: 5437729326590373930}
+        m_TargetAssemblyTypeName: StickmanMover, Assembly-CSharp
         m_MethodName: set_IsStopped
         m_Mode: 6
         m_Arguments:
@@ -210,8 +210,8 @@ MonoBehaviour:
   NoWallsOnWay:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3425113938940301881}
-        m_TargetAssemblyTypeName: Stickman, Assembly-CSharp
+      - m_Target: {fileID: 5437729326590373930}
+        m_TargetAssemblyTypeName: StickmanMover, Assembly-CSharp
         m_MethodName: set_IsStopped
         m_Mode: 6
         m_Arguments:
@@ -299,6 +299,7 @@ GameObject:
   - component: {fileID: 1112657754497461353}
   - component: {fileID: 3425113938940301881}
   - component: {fileID: 8856300016320169532}
+  - component: {fileID: 5437729326590373930}
   - component: {fileID: 4372900873143969437}
   - component: {fileID: 5083830677621538031}
   m_Layer: 6
@@ -338,8 +339,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.35, y: 1.5, z: 0.35}
-  m_Center: {x: 0, y: 0.79999995, z: 0}
+  m_Size: {x: 0.5, y: 2.4997358, z: 0.5}
+  m_Center: {x: 0, y: 1.37, z: 0}
 --- !u!54 &1112657754497461353
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -368,10 +369,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54d69a82ec8f63745912a5e1da1cc4b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 7.5
-  _speedRandomness: 0.1
-  _isStopped: 0
-  _factory: {fileID: 0}
 --- !u!114 &8856300016320169532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -386,6 +383,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _particles: {fileID: 780461553787592603, guid: ba4756c90a26b024a9013cc556652142, type: 3}
   _particlesColor: {r: 0, g: 1, b: 1, a: 1}
+--- !u!114 &5437729326590373930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626019924469498032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8cc3643ee611f844b5c03b86bfa0ac3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Speed>k__BackingField: 7.5
+  <SpeedMultiplier>k__BackingField: 1
+  <IsStopped>k__BackingField: 0
 --- !u!114 &4372900873143969437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -417,8 +429,8 @@ MonoBehaviour:
   Died:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8856300016320169532}
-        m_TargetAssemblyTypeName: StickmanDeathHandler, Assembly-CSharp
+      - m_Target: {fileID: 3425113938940301881}
+        m_TargetAssemblyTypeName: Stickman, Assembly-CSharp
         m_MethodName: Die
         m_Mode: 1
         m_Arguments:
@@ -952,7 +964,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5188527046674120162}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.7, z: 0}
+  m_LocalPosition: {x: 0, y: 1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 47811285960663871}
@@ -969,8 +981,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.7722354, z: 0.7437649}
-  m_Center: {x: 0, y: 0.092529535, z: 0.13523579}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8952329294039816455
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1349,7 +1361,7 @@ Transform:
   m_GameObject: {fileID: 8027970068936320896}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_Children:
   - {fileID: 165262575994464817}
   - {fileID: 1014175327511337022}

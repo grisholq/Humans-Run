@@ -8,9 +8,8 @@ public class AddingZone : DublicatingZone
 
     protected override void Inizialize()
     {
-        _spawnBounds = GetComponent<Collider>().bounds;
+        base.Inizialize();
         _zonePassed = false;
-        _zoneInfo.text = GetZoneInformation();
     }
 
     protected override string GetZoneInformation()
@@ -18,18 +17,17 @@ public class AddingZone : DublicatingZone
         return '+' + _addAmount.ToString();
     }
 
-    protected override void HandleDublication(Stickman stickman)
+    protected override void HandleDublication(IDublicatable dublicatable)
     {
         if (_zonePassed == true) return;
-      
+
+        dublicatable.LastDublicateZone = this;
+
         for (int i = 0; i < _addAmount; i++)
         {
-            Stickman spawnedHuman = _stickmanFactory.Create();
-            spawnedHuman.transform.position = GetSpawnPosition(stickman.transform);
-            spawnedHuman.LastDublicateZone = this;
+            CreateDublicate(dublicatable);
         }
 
-        stickman.LastDublicateZone = this;
         _zonePassed = true;
     }
 }

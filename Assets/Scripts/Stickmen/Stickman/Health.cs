@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Health : MonoBehaviour
+public class Health : MonoBehaviour, IDublicatablePart<Health>
 {
     [SerializeField] private UnityEvent Died;
     [SerializeField] private float _value;
@@ -36,5 +36,10 @@ public class Health : MonoBehaviour
     public void Die()
     {
         if (Died != null) Died.Invoke();
+    }
+
+    public void Dublicate(Health to)
+    {
+        to.Value = Value;
     }
 }

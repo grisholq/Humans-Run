@@ -2,5 +2,6 @@ using UnityEngine;
 
 public interface IDublicatable
 {
-    DublicatingZone LastDublicateZone { get; set; }
+    Transform CreateDublicate();
+    DublicatingZone LastDublicateZone { get; set; }  
 }

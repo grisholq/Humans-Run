@@ -24,7 +24,8 @@ public class StickmanAnimator : MonoBehaviour
 
     private bool IsStopped()
     {
-        return _stickman.Mover.AtDestination || _stickman.IsStopped;
+        IMovable movable = _stickman.Mover;
+        return movable.Mover.AtDestination || movable.IsStopped;
     }
 
     private bool IsFighting()
