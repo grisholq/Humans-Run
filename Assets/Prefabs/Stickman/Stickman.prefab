@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1825312000
+--- !u!1 &980641869
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,62 +8,49 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1825312001}
-  - component: {fileID: 1825312002}
-  - component: {fileID: 1825312003}
+  - component: {fileID: 980641870}
+  - component: {fileID: 980641871}
   m_Layer: 6
-  m_Name: DamageReciever
+  m_Name: DamagerAims
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1825312001
+--- !u!4 &980641870
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1825312000}
+  m_GameObject: {fileID: 980641869}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.2, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 47811285960663871}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1825312002
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1825312000}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1825312003
+--- !u!114 &980641871
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1825312000}
+  m_GameObject: {fileID: 980641869}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a4b15975eb02704d9d8b5a1622f6373, type: 3}
+  m_Script: {fileID: 11500000, guid: 344fd57c3ff9f694cac040a3df64a484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damageId: 0
-  DamageRecieved:
+  _range: 3
+  _aimsLayer: 128
+  AimsCountChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5083830677621538031}
-        m_TargetAssemblyTypeName: Health, Assembly-CSharp
-        m_MethodName: Damage
+      - m_Target: {fileID: 3425113938940301881}
+        m_TargetAssemblyTypeName: Stickman, Assembly-CSharp
+        m_MethodName: set_AimsCount
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -98,11 +85,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 55127458207825616}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.276, z: -0.433}
+  m_LocalPosition: {x: 0, y: 1.128, z: -0.433}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 47811285960663871}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &187354139278433637
 MonoBehaviour:
@@ -118,8 +105,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkTime: 0.1
   ignoredLayer: 64
-  onFloorDistance: 2
-  OnFloorStateChanged:
+  onFloorDistance: 1.8
+  NewFloorStateRecieved:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3425113938940301881}
@@ -163,7 +150,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 47811285960663871}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &569390096695177763
 MonoBehaviour:
@@ -179,7 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkTime: 0.3
   wallsLayer: 1024
-  wallDistance: 3
+  wallDistance: 6
   HasWallOnWay:
     m_PersistentCalls:
       m_Calls:
@@ -301,7 +288,7 @@ GameObject:
   - component: {fileID: 8856300016320169532}
   - component: {fileID: 5437729326590373930}
   - component: {fileID: 4372900873143969437}
-  - component: {fileID: 5083830677621538031}
+  - component: {fileID: 6968831480469921831}
   m_Layer: 6
   m_Name: Stickman
   m_TagString: Untagged
@@ -321,10 +308,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7215545688520310074}
-  - {fileID: 683768866273253763}
-  - {fileID: 1825312001}
   - {fileID: 212562021152905084}
   - {fileID: 4871543899083329273}
+  - {fileID: 980641870}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -339,8 +325,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 2.4997358, z: 0.5}
-  m_Center: {x: 0, y: 1.37, z: 0}
+  m_Size: {x: 0.5, y: 2.2525716, z: 0.5}
+  m_Center: {x: 0, y: 1.2464178, z: 0}
 --- !u!54 &1112657754497461353
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -397,7 +383,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Speed>k__BackingField: 7.5
   <SpeedMultiplier>k__BackingField: 1
-  <IsStopped>k__BackingField: 0
+  <IsStopped>k__BackingField: 1
 --- !u!114 &4372900873143969437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,7 +400,8 @@ MonoBehaviour:
   _stoppedParameterName: IsStopped
   _fightingParameterName: IsFighting
   _fallingParameterName: IsFalling
---- !u!114 &5083830677621538031
+  _hasJumpedParameterName: HasJumped
+--- !u!114 &6968831480469921831
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -423,10 +410,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 626019924469498032}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e194dc8b8de4145418b64cb9e1cb80de, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a4b15975eb02704d9d8b5a1622f6373, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Died:
+  _damageId: 0
+  Death:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3425113938940301881}
@@ -441,8 +429,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _value: 1
-  _max: 1
 --- !u!1 &983603904417743722
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,95 +923,6 @@ Transform:
   m_Father: {fileID: 8590740108082227304}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &5188527046674120162
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 683768866273253763}
-  - component: {fileID: 5630653519060036844}
-  - component: {fileID: 8952329294039816455}
-  - component: {fileID: 932437399}
-  m_Layer: 6
-  m_Name: Damager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &683768866273253763
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5188527046674120162}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 47811285960663871}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &5630653519060036844
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5188527046674120162}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8952329294039816455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5188527046674120162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f357ed17de94584980c5bd76fda598e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 1
-  _damageId: 0
---- !u!114 &932437399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5188527046674120162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 344fd57c3ff9f694cac040a3df64a484, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _range: 2
-  _aimsLayer: 128
-  AimsCountChanged:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3425113938940301881}
-        m_TargetAssemblyTypeName: Stickman, Assembly-CSharp
-        m_MethodName: set_AimsCount
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &5240295121327138094
 GameObject:
   m_ObjectHideFlags: 0
@@ -1458,7 +1355,7 @@ SkinnedMeshRenderer:
   m_GameObject: {fileID: 8363698204760918803}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 0
+  m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1

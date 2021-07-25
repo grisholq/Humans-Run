@@ -7,7 +7,7 @@ public class StickmanFloorChecker : MonoBehaviour
     [SerializeField] private float checkTime;
     [SerializeField] private int ignoredLayer;
     [SerializeField] private float onFloorDistance;
-    [SerializeField] private UnityEvent<bool> OnFloorStateChanged;
+    [SerializeField] private UnityEvent<bool> NewFloorStateRecieved;
 
     private Coroutine FloorCheckingCoroutine;
 
@@ -29,14 +29,8 @@ public class StickmanFloorChecker : MonoBehaviour
     {
         while (true)
         {
-            bool onFloor = IsOnFloor();     
-            
-            if(_onFloor != onFloor)
-            {
-                _onFloor = onFloor;
-                OnFloorStateChanged.Invoke(_onFloor);
-            }
-
+            _onFloor = IsOnFloor();
+            if (NewFloorStateRecieved != null) NewFloorStateRecieved.Invoke(_onFloor);
             yield return new WaitForSeconds(checkTime + Random.Range(0, 0.05f));
         }
     }

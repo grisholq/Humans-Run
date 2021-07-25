@@ -6,7 +6,6 @@ public class Stickman : MonoBehaviour, IDublicatable, IDublicatablePart<Stickman
     public bool OnFloor { get; set; }
     public StickmanDeathEffects DeathEffects { get; set; }
     public StickmanMover Mover { get; set; }
-    public Health Health { get; set; }
 
     public DublicatingZone LastDublicateZone { get; set; }
 
@@ -15,7 +14,6 @@ public class Stickman : MonoBehaviour, IDublicatable, IDublicatablePart<Stickman
         Stickman stickman = Instantiate(this);
         this.Dublicate(stickman);
         Mover.Dublicate(stickman.Mover);
-        Health.Dublicate(stickman.Health);
         return stickman.transform;
     }
 
@@ -32,7 +30,6 @@ public class Stickman : MonoBehaviour, IDublicatable, IDublicatablePart<Stickman
         OnFloor = true;
         DeathEffects = GetComponent<StickmanDeathEffects>();
         Mover = GetComponent<StickmanMover>();
-        Health = GetComponent<Health>();
     }
 
     public void Die()

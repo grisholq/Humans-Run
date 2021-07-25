@@ -21,6 +21,9 @@ public class ToTargetMover : IMover
 
         if (movable.IsStopped) return;
 
+        movable.Transform.LookAt(_target);
+
+
         if (GetDistanceToTarget(movable) <= _stopDistance)
         {
             _atDestination = true;

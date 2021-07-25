@@ -4,12 +4,12 @@ using UnityEngine.Events;
 public class DamageReciever : MonoBehaviour, IDamagable
 {
     [SerializeField] private float _damageId;
-    [SerializeField] private UnityEvent<float> DamageRecieved;
+    [SerializeField] private UnityEvent Death;
 
     public float DamageId { get => _damageId; }
- 
-    public void Damage(float damage)
+    
+    public void Kill()
     {
-        if (DamageRecieved != null) DamageRecieved.Invoke(damage);
+        if (Death != null) Death.Invoke();
     }
 }

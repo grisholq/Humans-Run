@@ -1,11 +1,13 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DublicatingZone : MonoBehaviour
 {
+    [SerializeField] private UnityEvent<DublicatingZone> ZoneEnter;
     [SerializeField] protected TextMeshPro _zoneInfo;
     [SerializeField] protected float _spawnRandomness;
-    
+
     private void Start()
     {
         Inizialize();
@@ -16,8 +18,14 @@ public class DublicatingZone : MonoBehaviour
         IDublicatable dublicatable;
         if (other.gameObject.TryGetComponent(out dublicatable))
         {
+            if (ZoneEnter != null) ZoneEnter.Invoke(this);
             HandleDublication(dublicatable);
         }
+    }
+
+    public void Disable()
+    {
+        GetComponent<DublicatingZoneDisabler>().Disable();
     }
 
     protected virtual void Inizialize()

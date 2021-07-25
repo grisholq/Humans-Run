@@ -26,10 +26,46 @@ Transform:
   m_LocalRotation: {x: -0.02480136, y: -0.29084605, z: -0.7810089, w: 0.5521039}
   m_LocalPosition: {x: 0.0006, y: -0.00017, z: -0.00071}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 3576625828672451165}
   m_Father: {fileID: 2576898891402310260}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -28.796, y: -18.8, z: -104.619}
+--- !u!114 &8667930468839269983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333121134003047611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d803bb33074dcf418e42a28e914e0d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageId: 1
+  _aimsLayer: 64
+  _killsAmount: 2
+  _range: 4
+  _time: 1.1
+  KillingsHappend:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5358902715139524110}
+        m_TargetAssemblyTypeName: Bossfight, Assembly-CSharp
+        m_MethodName: StickmenKilledInBossfight
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  AimsAmountUpdate:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5358902713237580892
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,8 +140,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 0.34150192}
-  m_Center: {x: -6.9398114e-14, y: 0, z: 0.28332192}
+  m_Size: {x: 1, y: 1, z: 0.28109485}
+  m_Center: {x: -6.467667e-14, y: 0, z: 0.3135257}
 --- !u!1 &5358902713436001541
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,6 +154,7 @@ GameObject:
   - component: {fileID: 5358902713436001543}
   - component: {fileID: 4056806425917664047}
   - component: {fileID: 4462741346835540500}
+  - component: {fileID: 5634284021172468785}
   m_Layer: 0
   m_Name: Enter
   m_TagString: Untagged
@@ -133,7 +170,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5358902713436001541}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.01, z: -9.5}
+  m_LocalPosition: {x: 0, y: 2.01, z: -9.81}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5358902715139524109}
@@ -150,7 +187,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3, y: 3, z: 1}
+  m_Size: {x: 7, y: 3, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4056806425917664047
 MonoBehaviour:
@@ -185,6 +222,33 @@ MonoBehaviour:
   _speedMultiplier: 0.7
   _target: {fileID: 8261549757864928908}
   _stopDistance: 2
+--- !u!114 &5634284021172468785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5358902713436001541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d8309f2813378e4d866016634ff1c10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StickmanEntered:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5358902715139524110}
+        m_TargetAssemblyTypeName: Bossfight, Assembly-CSharp
+        m_MethodName: StickmanEnteredBossfight
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5358902713487968722
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,8 +518,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 0.38830873}
-  m_Center: {x: 6.587705e-14, y: 0, z: -0.30584666}
+  m_Size: {x: 1, y: 1, z: 0.33058682}
+  m_Center: {x: 6.136543e-14, y: 0, z: -0.33470824}
 --- !u!1 &5358902714652983278
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,6 +601,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90b52c02fd648e649a7f8b459a5cd613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _boss: {fileID: 1058395579532467524}
+  _stickmenToWinAmount: 15
   PlayerWonBossfight:
     m_PersistentCalls:
       m_Calls:
@@ -552,47 +618,68 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7576090718012789732
-MonoBehaviour:
+--- !u!1001 &1762514014
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 983833232}
+    m_Modifications:
+    - target: {fileID: 3576625828019037699, guid: 07ae9693965d59b49af3d61a559f3e3d, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3576625828019037699, guid: 07ae9693965d59b49af3d61a559f3e3d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3576625828019037699, guid: 07ae9693965d59b49af3d61a559f3e3d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3576625828019037699, guid: 07ae9693965d59b49af3d61a559f3e3d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3576625828019037699, guid: 07ae9693965d59b49af3d61a559f3e3d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3576625828019037699, guid: 07ae9693965d59b49af3d61a559f3e3d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3576625828019037699, guid: 07ae9693965d59b49af3d61a559f3e3d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3576625828019037699, guid: 07ae9693965d59b49af3d61a559f3e3d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3576625828019037699, guid: 07ae9693965d59b49af3d61a559f3e3d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3576625828019037699, guid: 07ae9693965d59b49af3d61a559f3e3d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3576625828019037699, guid: 07ae9693965d59b49af3d61a559f3e3d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4245041295837347001, guid: 07ae9693965d59b49af3d61a559f3e3d, type: 3}
+      propertyPath: m_Name
+      value: Cudgel
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 07ae9693965d59b49af3d61a559f3e3d, type: 3}
+--- !u!4 &3576625828672451165 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3576625828019037699, guid: 07ae9693965d59b49af3d61a559f3e3d, type: 3}
+  m_PrefabInstance: {fileID: 1762514014}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8844830430900389123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e194dc8b8de4145418b64cb9e1cb80de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Died:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1058395579532467524}
-        m_TargetAssemblyTypeName: Boss, Assembly-CSharp
-        m_MethodName: Die
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 5358902715139524110}
-        m_TargetAssemblyTypeName: Bossfight, Assembly-CSharp
-        m_MethodName: PlayerHaveWon
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _value: 23
-  _max: 23
 --- !u!1001 &3376191951817579751
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -658,15 +745,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4104845810044527726, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 4104845810044527726, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 4104845810044527726, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
       propertyPath: m_LocalScale.z
-      value: 4
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 4104845810044527726, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -691,7 +778,7 @@ PrefabInstance:
     - target: {fileID: 5288129358057232500, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
       propertyPath: DamageRecieved.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 7576090718012789732}
+      objectReference: {fileID: 0}
     - target: {fileID: 5288129358057232500, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
       propertyPath: DamageRecieved.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -778,7 +865,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6664288455358315115, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.21
       objectReference: {fileID: 0}
     - target: {fileID: 6664288455358315115, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -858,10 +945,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 535786739900378842, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
+    - {fileID: 5288129358057232500, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
+    - {fileID: 5088739412781166398, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
+    - {fileID: 3046086297253040225, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
+    - {fileID: 8932135417012368600, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
---- !u!1 &8844830430900389123 stripped
+--- !u!1 &333121134003047611 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 6081410748976503268, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3046086297253040220, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
   m_PrefabInstance: {fileID: 3376191951817579751}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &2576898891402310260 stripped
@@ -874,7 +965,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2335830665095725475, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
   m_PrefabInstance: {fileID: 3376191951817579751}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8844830430900389123}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 637f8062302759b4388b8d93a707ef5f, type: 3}
