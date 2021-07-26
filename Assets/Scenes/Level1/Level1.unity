@@ -2990,15 +2990,31 @@ PrefabInstance:
     m_TransformParent: {fileID: 223695175}
     m_Modifications:
     - target: {fileID: 1058395579532467524, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
-      propertyPath: Death.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Play
+      propertyPath: Death.m_PersistentCalls.m_Calls.Array.size
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1058395579532467524, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
-      propertyPath: Death.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: BossDeathEffects, Assembly-CSharp
+      propertyPath: Death.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1058395579532467524, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
-      propertyPath: Death.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      propertyPath: Death.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1494659307}
+    - target: {fileID: 1058395579532467524, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
+      propertyPath: Death.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058395579532467524, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
+      propertyPath: Death.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ResetAsCameraFollower
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058395579532467524, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
+      propertyPath: Death.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: BossCameraPositioner, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058395579532467524, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
+      propertyPath: Death.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5358902715139524108, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
@@ -3050,36 +3066,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5358902715139524110, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
+      propertyPath: _stickmenToWinAmount
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5358902715139524110, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
       propertyPath: PlayerWonBossfight.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 223695176}
-    - target: {fileID: 5634284021172468785, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
-      propertyPath: StickmanEntered.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5634284021172468785, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
-      propertyPath: StickmanEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+    - target: {fileID: 8667930468839269983, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
+      propertyPath: _time
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 5634284021172468785, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
-      propertyPath: StickmanEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1494659307}
-    - target: {fileID: 5634284021172468785, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
-      propertyPath: StickmanEntered.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
+    - target: {fileID: 8667930468839269983, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
+      propertyPath: _range
+      value: 3.5
       objectReference: {fileID: 0}
-    - target: {fileID: 5634284021172468785, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
-      propertyPath: StickmanEntered.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SetAsCameraFollowed
-      objectReference: {fileID: 0}
-    - target: {fileID: 5634284021172468785, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
-      propertyPath: StickmanEntered.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: BossCameraPositioner, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5634284021172468785, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
-      propertyPath: StickmanEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+    - target: {fileID: 8667930468839269983, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
+      propertyPath: _killsAmount
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
@@ -7385,24 +7389,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d92074f0816ad8349a8f5a9187ed4832, type: 3}
---- !u!1 &1494659301 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8844830430900389123, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
+--- !u!114 &1494659307 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1494659307, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
   m_PrefabInstance: {fileID: 376990252}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1494659307
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1494659301}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb6f7049f79b97541bea71ae3dd666e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _offset: {x: 32, y: 12, z: 0}
 --- !u!1001 &1496986478
 PrefabInstance:
   m_ObjectHideFlags: 0
