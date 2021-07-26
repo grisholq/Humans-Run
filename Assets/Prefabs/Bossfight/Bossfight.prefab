@@ -47,7 +47,7 @@ MonoBehaviour:
   _aimsLayer: 64
   _killsAmount: 2
   _range: 4
-  _time: 1.1
+  _time: 1.13
   KillingsHappend:
     m_PersistentCalls:
       m_Calls:
@@ -65,7 +65,19 @@ MonoBehaviour:
         m_CallState: 2
   AimsAmountUpdate:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1058395579532467524}
+        m_TargetAssemblyTypeName: Boss, Assembly-CSharp
+        m_MethodName: set_AimsCount
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5358902713237580892
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,6 +252,18 @@ MonoBehaviour:
       - m_Target: {fileID: 5358902715139524110}
         m_TargetAssemblyTypeName: Bossfight, Assembly-CSharp
         m_MethodName: StickmanEnteredBossfight
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1494659307}
+        m_TargetAssemblyTypeName: BossCameraPositioner, Assembly-CSharp
+        m_MethodName: SetAsCameraFollowed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -618,6 +642,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6939958665427586477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8844830430900389123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e2206f56c8d00e4ebf196c8168a27ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _deathParticles: {fileID: 780461553787592603, guid: ba4756c90a26b024a9013cc556652142, type: 3}
+  _deathParticlesColor: {r: 1, g: 0.10196079, b: 0.10196079, a: 1}
+--- !u!114 &1494659307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8844830430900389123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb6f7049f79b97541bea71ae3dd666e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _offset: {x: 32, y: 12, z: 0}
 --- !u!1001 &1762514014
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -726,6 +777,34 @@ PrefabInstance:
     - target: {fileID: 2335830665095725475, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
       propertyPath: _deathParticlesColor.g
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335830665095725475, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
+      propertyPath: Death.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335830665095725475, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
+      propertyPath: Death.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335830665095725475, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
+      propertyPath: Death.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6939958665427586477}
+    - target: {fileID: 2335830665095725475, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
+      propertyPath: Death.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335830665095725475, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
+      propertyPath: Death.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335830665095725475, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
+      propertyPath: Death.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BossDeathEffects, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2335830665095725475, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
+      propertyPath: Death.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3046086297253040223, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -950,14 +1029,14 @@ PrefabInstance:
     - {fileID: 3046086297253040225, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
     - {fileID: 8932135417012368600, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
---- !u!1 &333121134003047611 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3046086297253040220, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
-  m_PrefabInstance: {fileID: 3376191951817579751}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2576898891402310260 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 943608930842406547, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
+  m_PrefabInstance: {fileID: 3376191951817579751}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &333121134003047611 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3046086297253040220, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
   m_PrefabInstance: {fileID: 3376191951817579751}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1058395579532467524 stripped
@@ -965,7 +1044,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2335830665095725475, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
   m_PrefabInstance: {fileID: 3376191951817579751}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 8844830430900389123}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 637f8062302759b4388b8d93a707ef5f, type: 3}
@@ -974,5 +1053,10 @@ MonoBehaviour:
 --- !u!4 &8261549757864928908 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6664288455358315115, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
+  m_PrefabInstance: {fileID: 3376191951817579751}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8844830430900389123 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6081410748976503268, guid: 919566622d5e4c94bbd2e25c76caa20f, type: 3}
   m_PrefabInstance: {fileID: 3376191951817579751}
   m_PrefabAsset: {fileID: 0}

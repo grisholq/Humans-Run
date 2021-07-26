@@ -2,13 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StickmenCameraPositioner : MonoBehaviour
+public class StickmenCameraPositioner : MonoBehaviour, ICameraFollowed
 {
-    [SerializeField] private CameraFollower _follower;
-   
+    [SerializeField] private Vector3 _offset;
+
     private StickmenStorage _stickmen;
     private List<Stickman> _firstStickmen;
     private IComparer<Stickman> _comparer;
+
+    public Vector3 Position { get; private set; }
+    public Vector3 Offset { get => _offset; }
+    public bool IsValid { get => gameObject != null; }
 
     private void Awake()
     {
@@ -43,8 +47,7 @@ public class StickmenCameraPositioner : MonoBehaviour
             return;
         }
 
-        Vector3 position = GetAveragePosition(_firstStickmen);
-        _follower.Target = position;
+        Position = GetAveragePosition(_firstStickmen);
     }
 
     private void SetFirstStickmen()
@@ -83,5 +86,10 @@ public class StickmenCameraPositioner : MonoBehaviour
         }
 
         return result / stickmen.Count;
+    }
+
+    public void SetAsCameraFollowed()
+    {
+        CameraFollower.Instance.Followed = this;
     }
 }

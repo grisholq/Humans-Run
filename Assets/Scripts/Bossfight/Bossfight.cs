@@ -5,20 +5,21 @@ public class Bossfight : MonoBehaviour
 {
     [SerializeField] private Boss _boss;
     [SerializeField] private int _stickmenToWinAmount;
+
     [SerializeField] private UnityEvent PlayerWonBossfight;
 
-    private int _enteredStickmenCount;
-    private int _killedStickmanCount;
+    private int _stickmenEntered;
+    private int _stickmenKilled;
 
     private void Start()
     {
-        _killedStickmanCount = 0;
-        _enteredStickmenCount = 0;
+        _stickmenKilled = 0;
+        _stickmenEntered = 0;
     }
 
     public void StickmenKilledInBossfight(int amount)
     {
-        _killedStickmanCount += amount;
+        _stickmenKilled += amount;
         if(BossfightWon())
         {
             WinBossfight();
@@ -27,12 +28,12 @@ public class Bossfight : MonoBehaviour
     
     public void StickmanEnteredBossfight()
     {
-        _enteredStickmenCount++;
+        _stickmenEntered++;
     }
 
     private bool BossfightWon()
     {
-        return _killedStickmanCount >= _stickmenToWinAmount && _enteredStickmenCount > _killedStickmanCount;
+        return _stickmenKilled >= _stickmenToWinAmount && _stickmenEntered > _stickmenKilled;
     }
 
     private void WinBossfight()

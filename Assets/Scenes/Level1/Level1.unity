@@ -780,7 +780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15d0bc44a6d6c6d4ab90416d8a4a74ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _follower: {fileID: 985328361}
+  _offset: {x: 32, y: 12, z: 4}
 --- !u!1 &97788732 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4013186408200988327, guid: d4aefc8718872c940bf0fb8ae580b8ba, type: 3}
@@ -2989,6 +2989,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 223695175}
     m_Modifications:
+    - target: {fileID: 1058395579532467524, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
+      propertyPath: Death.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058395579532467524, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
+      propertyPath: Death.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BossDeathEffects, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1058395579532467524, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
+      propertyPath: Death.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5358902715139524108, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
       propertyPath: m_Name
       value: Bossfight
@@ -3041,36 +3053,32 @@ PrefabInstance:
       propertyPath: PlayerWonBossfight.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 223695176}
-    - target: {fileID: 8667930468839269983, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
-      propertyPath: _time
-      value: 1.13
-      objectReference: {fileID: 0}
-    - target: {fileID: 8667930468839269983, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
-      propertyPath: AimsAmountUpdate.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8667930468839269983, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
-      propertyPath: AimsAmountUpdate.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8667930468839269983, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
-      propertyPath: AimsAmountUpdate.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 608528741}
-    - target: {fileID: 8667930468839269983, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
-      propertyPath: AimsAmountUpdate.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+    - target: {fileID: 5634284021172468785, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
+      propertyPath: StickmanEntered.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 8667930468839269983, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
-      propertyPath: AimsAmountUpdate.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: set_AimsCount
+    - target: {fileID: 5634284021172468785, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
+      propertyPath: StickmanEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8667930468839269983, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
-      propertyPath: AimsAmountUpdate.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Boss, Assembly-CSharp
+    - target: {fileID: 5634284021172468785, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
+      propertyPath: StickmanEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1494659307}
+    - target: {fileID: 5634284021172468785, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
+      propertyPath: StickmanEntered.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 8667930468839269983, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
-      propertyPath: AimsAmountUpdate.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+    - target: {fileID: 5634284021172468785, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
+      propertyPath: StickmanEntered.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetAsCameraFollowed
+      objectReference: {fileID: 0}
+    - target: {fileID: 5634284021172468785, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
+      propertyPath: StickmanEntered.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: BossCameraPositioner, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5634284021172468785, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
+      propertyPath: StickmanEntered.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3664,17 +3672,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 75.42781, y: 100, z: 2000}
   m_Center: {x: -35.966698, y: 0, z: 0}
---- !u!114 &608528741 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1058395579532467524, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
-  m_PrefabInstance: {fileID: 376990252}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 637f8062302759b4388b8d93a707ef5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &655702214
 GameObject:
   m_ObjectHideFlags: 0
@@ -5169,6 +5166,7 @@ GameObject:
   m_Component:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
+  - component: {fileID: 963194226}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5176,6 +5174,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &963194226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8fee576e80f53b4ba184b9b9d0b7bce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultFollowed: {fileID: 78213312}
+  _speed: 120
+  _minDistance: 0
 --- !u!20 &963194227
 Camera:
   m_ObjectHideFlags: 0
@@ -5227,11 +5240,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.067773156, y: -0.7038514, z: 0.067773156, w: 0.7038514}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 32, y: 12, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 985328362}
-  m_RootOrder: 0
+  m_Children:
+  - {fileID: 1467595357}
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 11, y: -90, z: 0}
 --- !u!1 &982543228
 GameObject:
@@ -5307,54 +5321,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 982543228}
   m_CullTransparentMesh: 1
---- !u!1 &985328360
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 985328362}
-  - component: {fileID: 985328361}
-  m_Layer: 0
-  m_Name: CameraBlock
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &985328361
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 985328360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8fee576e80f53b4ba184b9b9d0b7bce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _speed: 120
-  _minDistance: 0
-  _offset: {x: 32, y: 12, z: 4}
---- !u!4 &985328362
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 985328360}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 32, y: 12, z: -8}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 963194228}
-  - {fileID: 1467595357}
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &988321037
 GameObject:
   m_ObjectHideFlags: 0
@@ -7227,8 +7193,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1467595357}
-  - component: {fileID: 1467595359}
   - component: {fileID: 1467595358}
+  - component: {fileID: 1467595359}
   m_Layer: 0
   m_Name: NoStickmenZone
   m_TagString: Untagged
@@ -7243,12 +7209,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1467595356}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -31.6, y: 0, z: -53.6}
+  m_LocalRotation: {x: -0.067773156, y: 0.7038514, z: -0.067773156, w: 0.7038514}
+  m_LocalPosition: {x: -12.2, y: 6.029562, z: 31.01942}
   m_LocalScale: {x: 5, y: 100, z: 3}
   m_Children: []
-  m_Father: {fileID: 985328362}
-  m_RootOrder: 1
+  m_Father: {fileID: 963194228}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1467595358
 BoxCollider:
@@ -7419,6 +7385,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d92074f0816ad8349a8f5a9187ed4832, type: 3}
+--- !u!1 &1494659301 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8844830430900389123, guid: 1f1540dde93cf014f9c0163a0c82e2b8, type: 3}
+  m_PrefabInstance: {fileID: 376990252}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1494659307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1494659301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb6f7049f79b97541bea71ae3dd666e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _offset: {x: 32, y: 12, z: 0}
 --- !u!1001 &1496986478
 PrefabInstance:
   m_ObjectHideFlags: 0
