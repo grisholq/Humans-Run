@@ -26,7 +26,7 @@ public class SpringPlatform : Platform
 
             if(_platform.position.y > _end.position.y)
             {
-                _platform.position = new Vector3(_platform.position.x, _end.position.y, _platform.position.z);
+                _platformRigidbody.MovePosition(new Vector3(_platform.position.x, _end.position.y, _platform.position.z));
                
             }
 
@@ -41,7 +41,7 @@ public class SpringPlatform : Platform
 
             if (_platform.position.y <= _start.position.y)
             {
-                _platform.position = new Vector3(_platform.position.x, _start.position.y, _platform.position.z);
+                _platformRigidbody.MovePosition(new Vector3(_platform.position.x, _start.position.y, _platform.position.z));
             }
 
             if (Mathf.Abs(_platform.position.y - _start.position.y) <= _stopDistance)

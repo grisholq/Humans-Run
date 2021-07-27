@@ -72,10 +72,10 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 122
-  m_CollisionDetection: 1
+  m_Constraints: 96
+  m_CollisionDetection: 3
 --- !u!65 &1782990462
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -87,8 +87,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.5769072, y: 1.197623, z: 0.99321127}
-  m_Center: {x: 0, y: 0.0047268104, z: -0.3487987}
+  m_Size: {x: 1.5769072, y: 1.197623, z: 1.0003725}
+  m_Center: {x: 0, y: 0.0047267834, z: -0.345218}
 --- !u!1 &7648167124217518818
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,7 +98,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7648167124217518820}
-  - component: {fileID: 7648167124217518819}
+  - component: {fileID: 5447248935945585382}
   m_Layer: 8
   m_Name: Spring Platform
   m_TagString: Untagged
@@ -124,7 +124,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7648167124217518819
+--- !u!114 &5447248935945585382
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,16 +133,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7648167124217518818}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6432b306e22550488da9d130c20698d, type: 3}
+  m_Script: {fileID: 11500000, guid: 4aca6b702282e3d43ab5d5151bf85f69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _platform: {fileID: 5807037965130985282}
-  _platformRigidbody: {fileID: 2530423820456933918}
-  _holdVelocity: {x: 0, y: 25, z: 0}
-  _releaseVelocity: {x: 0, y: -25, z: 0}
-  _stopDistance: 0.1
+  _speed: 1
   _start: {fileID: 1312366621390393345}
   _end: {fileID: 1312366621864209642}
+  _platformRigidbody: {fileID: 2530423820456933918}
 --- !u!1001 &471713015222435324
 PrefabInstance:
   m_ObjectHideFlags: 0

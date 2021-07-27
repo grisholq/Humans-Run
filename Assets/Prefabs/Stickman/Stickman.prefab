@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 980641870}
-  - component: {fileID: 980641871}
   m_Layer: 6
   m_Name: DamagerAims
   m_TagString: Untagged
@@ -31,35 +30,6 @@ Transform:
   m_Father: {fileID: 47811285960663871}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &980641871
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 980641869}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 344fd57c3ff9f694cac040a3df64a484, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _range: 3
-  _aimsLayer: 128
-  AimsCountChanged:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3425113938940301881}
-        m_TargetAssemblyTypeName: Stickman, Assembly-CSharp
-        m_MethodName: set_AimsCount
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &55127458207825616
 GameObject:
   m_ObjectHideFlags: 0

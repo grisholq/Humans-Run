@@ -19,18 +19,32 @@ public class PlatformsState : MonoBehaviour
         }
     }
 
+    private float _lastState;
+
     public bool Hold { get; set; }
 
     private void Awake()
     {
+        _lastState = 0;
+        State = 0;
         _platforms = new List<Platform>(GetComponentsInChildren<Platform>());
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        Hold = IsHolding();
-        State += Time.deltaTime * (Hold ? 1 : -1) * _changeSpeed;
+        UpdateState();
+        UpdatePlatforms();
+    }
 
+    private void UpdateState()
+    {
+        Hold = HoldReleaseInput.Instance.IsHolding;
+        _lastState = State;
+        State += Time.deltaTime * (Hold ? 1 : -1) * _changeSpeed;
+    }
+
+    private void UpdatePlatforms()
+    {
         foreach (var platform in _platforms)
         {
             platform.SetState(State, Hold);

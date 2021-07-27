@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Stickman : MonoBehaviour, IDublicatable, IDublicatablePart<Stickman>
 {
-    public int AimsCount { get; set; }
+    public bool IsFighting { get; set; }
     public bool OnFloor { get; set; }
     public StickmanDeathEffects DeathEffects { get; set; }
     public StickmanMover Mover { get; set; }
@@ -20,7 +20,7 @@ public class Stickman : MonoBehaviour, IDublicatable, IDublicatablePart<Stickman
     public void Dublicate(Stickman to)
     {
         to.transform.parent = transform.parent;
-        to.AimsCount = AimsCount;
+        to.IsFighting = IsFighting;
         to.OnFloor = OnFloor;
         to.LastDublicateZone = LastDublicateZone;
     }

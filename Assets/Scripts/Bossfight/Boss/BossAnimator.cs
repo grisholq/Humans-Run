@@ -15,6 +15,6 @@ public class BossAnimator : MonoBehaviour
 
     private void Update()
     {
-        _animator.SetBool(_fightParameterName, _boss.AimsCount > 0);
+        _animator.SetBool(_fightParameterName, _boss.IsFighting);
     }
 }

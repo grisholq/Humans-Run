@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class BossfightEnter : MonoBehaviour
 {
-    [SerializeField] private UnityEvent StickmanEntered;
+    [SerializeField] private UnityEvent<Stickman> StickmanEntered;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -16,6 +16,6 @@ public class BossfightEnter : MonoBehaviour
 
     private void Enter(Stickman stickman)
     {
-        if (StickmanEntered != null) StickmanEntered.Invoke();
+        if (StickmanEntered != null) StickmanEntered.Invoke(stickman);
     }
 }

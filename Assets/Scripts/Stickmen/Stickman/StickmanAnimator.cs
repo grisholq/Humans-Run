@@ -41,7 +41,7 @@ public class StickmanAnimator : MonoBehaviour
 
     private bool IsFighting()
     {
-        return _stickman.AimsCount > 0;
+        return _stickman.IsFighting;
     }
 
     private bool IsFalling()

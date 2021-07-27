@@ -6,7 +6,8 @@ public class Bossfight : MonoBehaviour
     [SerializeField] private Boss _boss;
     [SerializeField] private int _stickmenToWinAmount;
 
-    [SerializeField] private UnityEvent PlayerWonBossfight;
+    [SerializeField] private UnityEvent BossfightWon;
+    [SerializeField] private UnityEvent BossfightStarted;
 
     private int _stickmenEntered;
     private int _stickmenKilled;
@@ -20,18 +21,24 @@ public class Bossfight : MonoBehaviour
     public void StickmenKilledInBossfight(int amount)
     {
         _stickmenKilled += amount;
-        if(BossfightWon())
+        if(IsBossfightWon())
         {
             WinBossfight();
         }
     } 
     
-    public void StickmanEnteredBossfight()
+    public void StickmanEnteredBossfight(Stickman stickman)
     {
+        if(_stickmenEntered == 0)
+        {
+            StartBossfight();
+        }
+
+        stickman.IsFighting = true;
         _stickmenEntered++;
     }
 
-    private bool BossfightWon()
+    private bool IsBossfightWon()
     {
         return _stickmenKilled >= _stickmenToWinAmount && _stickmenEntered > _stickmenKilled;
     }
@@ -39,6 +46,11 @@ public class Bossfight : MonoBehaviour
     private void WinBossfight()
     {
         _boss.Die();
-        if (PlayerWonBossfight != null) PlayerWonBossfight.Invoke();    
+        if (BossfightWon != null) BossfightWon.Invoke();    
+    }
+
+    private void StartBossfight()
+    {
+        if (BossfightStarted != null) BossfightStarted.Invoke();
     }
 }

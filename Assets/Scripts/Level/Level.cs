@@ -3,31 +3,34 @@ using UnityEngine.Events;
 
 public class Level : MonoBehaviour
 {
-    [SerializeField] private LevelData _levelData;
-
     [SerializeField] private UnityEvent LevelWon;
     [SerializeField] private UnityEvent LevelLost;
+
+    private LevelData _levelData;
 
     private void Awake()
     {
         Application.targetFrameRate = 60;
-        LevelsLoader.Instance.Current = _levelData;
+        _levelData = LevelsLoader.Instance.Current;
     }
 
     public void Restart()
     {
-        LevelsLoader.Instance.ReloadCurrentLevel();
+        LevelsLoader.Instance.RestartLevel();
     }
 
     public void Win()
     {
         if (LevelWon != null) LevelWon.Invoke();
-        Debug.Log("Victory");
     }
 
     public void Lose()
     {
         if (LevelLost != null) LevelLost.Invoke();
-        Debug.Log("Loose");
+    }
+    
+    public void NextLevel()
+    {
+        LevelsLoader.Instance.LoadNextLevel();
     }
 }

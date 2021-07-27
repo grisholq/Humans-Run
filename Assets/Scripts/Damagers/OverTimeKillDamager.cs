@@ -1,95 +1,50 @@
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
+using System.Collections.Generic;
 
+[RequireComponent(typeof(DamagerAimsFinder))]
 public class OverTimeKillDamager : Damager
 {
-    [SerializeField] private int _aimsLayer;
     [SerializeField] private int _killsAmount;
-    [SerializeField] private float _range;
     [SerializeField] private float _time;
 
     [SerializeField] private UnityEvent<int> KillingsHappend;
-    [SerializeField] private UnityEvent<int> AimsAmountUpdate;
 
-    private Coroutine _killingCoroutine;
+    private Coroutine _killingsHandler;
 
-    private Collider[] _enemyColliders;
+    private DamagerAimsFinder _aimsFinder;
 
     private void OnEnable()
     {
-        _killingCoroutine = StartCoroutine(FindDamagables());
+        _aimsFinder = GetComponent<DamagerAimsFinder>();
+        _killingsHandler = StartCoroutine(HandleKilling());
     }
 
     private void OnDisable()
     {
-        StopCoroutine(_killingCoroutine);
+        StopCoroutine(_killingsHandler);
     }
 
-    private IEnumerator FindDamagables()
+    private IEnumerator HandleKilling()
     {
         while (true)
         {
-            LocateNearbyEnemies();
-            yield return new WaitForSeconds(_time); 
-            HandleDamagablesKilling();
+            yield return new WaitForSeconds(_time);
+            List<IDamagable> damagables = _aimsFinder.FindAims();
+            KillDamagables(damagables, _killsAmount);
         }
     }
 
-    private void LocateNearbyEnemies()
+    private void KillDamagables(List<IDamagable> damagables, int amount)
     {
-        if (GetDamagablesColliders(out _enemyColliders))
-        {
-            if (AimsAmountUpdate != null) AimsAmountUpdate.Invoke(_enemyColliders.Length);
-            return;
-        }
-        if (AimsAmountUpdate != null) AimsAmountUpdate.Invoke(0);
-    }
+        int killAmount = amount > damagables.Count ? damagables.Count : amount;
 
-    private void HandleDamagablesKilling()
-    {
-        if (HasEnemies() == false) return;
-        IDamagable[] damagables = GetDamagablesFromColliders(_enemyColliders);
-        KillDamagables(damagables, _killsAmount);      
-    }
-
-    private void KillDamagables(IDamagable[] damagables, int amount)
-    {
-        int lastIndexExclusive = amount > damagables.Length ? damagables.Length : amount;
-
-        for (int i = 0; i < lastIndexExclusive; i++)
+        for (int i = 0; i < killAmount; i++)
         {
             damagables[i].Kill();
         }
 
-        if (KillingsHappend != null) KillingsHappend.Invoke(lastIndexExclusive);
-    }
-
-    private IDamagable[] GetDamagablesFromColliders(Collider[] colliders)
-    {
-        IDamagable[] damagables = new IDamagable[colliders.Length];
-
-        for (int i = 0; i < colliders.Length; i++)
-        {
-            damagables[i] = colliders[i].GetComponent<IDamagable>();
-        }
-
-        return damagables;
-    }
-
-    private bool GetDamagablesColliders(out Collider[] colliders)
-    {
-        colliders = Physics.OverlapBox(transform.position, GetRange(), Quaternion.identity, _aimsLayer, QueryTriggerInteraction.Collide);
-        return colliders != null && colliders.Length != 0;
-    }
-
-    private bool HasEnemies()
-    {
-        return _enemyColliders != null && _enemyColliders.Length != 0;
-    }
-
-    private Vector3 GetRange()
-    {
-        return new Vector3(_range, _range, _range);
+        if (KillingsHappend != null) KillingsHappend.Invoke(killAmount);
     }
 }

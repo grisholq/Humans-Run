@@ -5,7 +5,12 @@ public class Boss : MonoBehaviour
 {
     [SerializeField] private UnityEvent Death;
 
-    public int AimsCount { get; set; }
+    public bool IsFighting { get; set; }
+
+    private void Start()
+    {
+        IsFighting = false;
+    }
 
     public void Die()
     {
