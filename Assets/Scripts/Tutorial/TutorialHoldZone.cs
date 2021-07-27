@@ -1,18 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class TutorialHoldZone : MonoBehaviour
+public class TutorialHoldZone : TutorialZone
 {
-    // Start is called before the first frame update
-    void Start()
+    protected override bool IsCorrectInput()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        return HoldReleaseInput.Instance.IsHolding;
     }
 }

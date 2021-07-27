@@ -5,55 +5,51 @@ public class LevelsLoader : Singleton<LevelsLoader>
 {
     [SerializeField] private Levels _levels; 
 
-    public LevelData Current { get; set; }
-
-    private const string _levelKey = "Level";
+    public LevelData LoadedLevel { get; set; }
 
     private void Awake()
     {
-        DontDestroyOnLoad(this);
+        LoadProgressLevel();
+        DontDestroyOnLoad(this);       
+    }
 
-        if (PlayerPrefs.HasKey(_levelKey))
+    private void LoadProgressLevel()
+    {
+        if (LevelsProgress.Empty)
         {
-            int level = PlayerPrefs.GetInt(_levelKey);
-            LevelData current = _levels.GetLevel(level);
-            LoadLevel(current);
+            LoadFirstLevel();
         }
         else
-        {         
-            LevelData first = _levels.GetFirstLevel(); 
-            PlayerPrefs.SetInt(_levelKey, first.Number);
-            PlayerPrefs.Save();
-            LoadLevel(first);
+        {
+            LoadCurrentLevel();
         }
+    }
+
+    private void LoadFirstLevel()
+    {
+        LoadLevel(_levels.GetFirstLevel());
+    }
+
+    private void LoadCurrentLevel()
+    {
+        int level = LevelsProgress.GetCurrentLevelNumber();
+        LoadLevel(_levels.GetLevel(level));
     }
     
     public void RestartLevel()
     {
-        LoadLevel(Current);
+        LoadLevel(LoadedLevel);
     }
 
     public void LoadNextLevel()
     {
-        LevelData nextLevel = GetNextLevel();
-        PlayerPrefs.SetInt(_levelKey, nextLevel.Number);
-        PlayerPrefs.Save();
-        LoadLevel(nextLevel);
-    }
-
-    private LevelData GetNextLevel()
-    {
-        if (_levels.HasNextLevel(Current))
-        {
-            return _levels.GetNextLevel(Current);
-        }
-
-        return _levels.GetFirstLevel();
+        LoadLevel(_levels.GetNextLevel(LoadedLevel));
     }
 
     private void LoadLevel(LevelData level)
     {
-        Current = level;
+        LoadedLevel = level;
+        LevelsProgress.SetCurrentLevelNumber(level.Number);
         SceneManager.LoadSceneAsync(level.BuildIndex);        
     }
 }

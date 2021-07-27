@@ -11,7 +11,7 @@ public class Level : MonoBehaviour
     private void Awake()
     {
         Application.targetFrameRate = 60;
-        _levelData = LevelsLoader.Instance.Current;
+        _levelData = LevelsLoader.Instance.LoadedLevel;
     }
 
     public void Restart()
