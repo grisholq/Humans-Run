@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f081b2aa6524584aaf0407c18f59542, type: 3}
   m_Name: Level3
   m_EditorClassIdentifier: 
-  <BuildIndex>k__BackingField: 2
-  <Number>k__BackingField: 2
+  <BuildIndex>k__BackingField: 3
+  <Number>k__BackingField: 3
+  <Pallete>k__BackingField: {fileID: 11400000, guid: d68184fec663b3f4b9e4611dfd589d88, type: 2}

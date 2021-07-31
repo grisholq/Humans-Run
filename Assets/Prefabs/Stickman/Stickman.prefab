@@ -337,8 +337,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74deb025bc8d89e4f9d681ac5316bbc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _renderer: {fileID: 3646552804069146239}
   _particles: {fileID: 780461553787592603, guid: ba4756c90a26b024a9013cc556652142, type: 3}
-  _particlesColor: {r: 0, g: 1, b: 1, a: 1}
+  _particlesCount: 15
 --- !u!114 &5437729326590373930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1325,7 +1326,7 @@ SkinnedMeshRenderer:
   m_GameObject: {fileID: 8363698204760918803}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1

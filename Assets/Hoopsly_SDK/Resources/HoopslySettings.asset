@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2db86c40b5c244ed98fa99e8c00abbe4, type: 3}
+  m_Name: HoopslySettings
+  m_EditorClassIdentifier: 
+  m_useAppsflyer: 1
+  m_appsflyerSdkKey: GxGx6WdkDDW4KaM46riiz
+  m_appsflyerAppId: 
+  m_appsflyerIsDebug: 0
+  m_useApplovin: 0
+  m_maxSdkKey: _wOZWz-JINT4NAeLckviPsx8oVbzyzoTi2Ph4g0yTwoK8qG7PLd4a0yV9iP9QKkXg93dMU34ohb3b3EaJcmb3x
+  m_enableVerboseLogging: 0
+  m_showMediationDebuggerOnStart: 0
+  m_useInterstitialAd: 0
+  m_interstitialAdUnitId: 
+  m_useRewardedAd: 0
+  m_rewardedAdUnitId: 
+  m_useBannerAd: 0
+  m_bannerAdUnitId: 
+  m_bannerPosition: 7
+  m_bannerBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
+  m_useFacebook: 1
+  m_useFirebase: 1

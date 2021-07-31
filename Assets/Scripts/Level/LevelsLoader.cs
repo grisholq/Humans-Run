@@ -9,8 +9,8 @@ public class LevelsLoader : Singleton<LevelsLoader>
 
     private void Awake()
     {
-        LoadProgressLevel();
-        DontDestroyOnLoad(this);       
+        DontDestroyOnLoad(this);
+        LoadProgressLevel();           
     }
 
     private void LoadProgressLevel()

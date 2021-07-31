@@ -6,12 +6,21 @@ public class Level : MonoBehaviour
     [SerializeField] private UnityEvent LevelWon;
     [SerializeField] private UnityEvent LevelLost;
 
+    private LevelPalleteInizializer _palleteInizializer;
+
     private LevelData _levelData;
 
     private void Awake()
     {
         Application.targetFrameRate = 60;
+        InizializeLevel();
+    }
+
+    private void InizializeLevel()
+    {
         _levelData = LevelsLoader.Instance.LoadedLevel;
+        _palleteInizializer = GetComponent<LevelPalleteInizializer>();
+        _palleteInizializer.InizializeLevelPallete(_levelData.Pallete);
     }
 
     public void Restart()
