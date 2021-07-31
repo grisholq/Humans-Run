@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -5,6 +6,7 @@ public class Bossfight : MonoBehaviour
 {
     [SerializeField] private Boss _boss;
     [SerializeField] private int _stickmenToWinAmount;
+    [SerializeField] private TextMeshPro _stickmenToWinText;
 
     [SerializeField] private UnityEvent BossfightWon;
     [SerializeField] private UnityEvent BossfightStarted;
@@ -16,6 +18,12 @@ public class Bossfight : MonoBehaviour
     {
         _stickmenKilled = 0;
         _stickmenEntered = 0;
+        ShowStickmenToWinAmount();
+    }
+
+    private void ShowStickmenToWinAmount()
+    {
+        _stickmenToWinText.text = _stickmenToWinAmount.ToString();
     }
 
     public void StickmenKilledInBossfight(int amount)

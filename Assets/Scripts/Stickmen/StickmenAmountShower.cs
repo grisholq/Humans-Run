@@ -1,0 +1,29 @@
+using TMPro;
+using UnityEngine;
+
+[RequireComponent(typeof(StickmenStorage))]
+public class StickmenAmountShower : MonoBehaviour
+{
+    [SerializeField] private TextMeshPro _amount;
+    [SerializeField] private Vector3 _offset;
+
+    private StickmenStorage _stickmenStorage;
+
+    private void Awake()
+    {
+        _stickmenStorage = GetComponent<StickmenStorage>();
+    }
+
+    private void Update()
+    {
+        _amount.text = _stickmenStorage.StickmenCount.ToString();
+    }
+
+    public void SetAmountShowerPosition(Vector3 position)
+    {
+        Vector3 textPosition = position;
+        textPosition += _offset;
+        textPosition.x = 0;
+        _amount.transform.position = textPosition;
+    }
+}

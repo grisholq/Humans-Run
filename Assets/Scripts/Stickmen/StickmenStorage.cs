@@ -5,13 +5,17 @@ public class StickmenStorage : MonoBehaviour
 {
     [SerializeField] private UnityEvent NoStickmenLeft;
 
-    public Stickman[] Array
+    public Stickman[] Stickmen
     {
         get
         {
             return GetComponentsInChildren<Stickman>();
         }
     }
+
+    public int StickmenCount => transform.childCount;
+
+    public bool Empty => transform.childCount == 0;
 
     private void Awake()
     {
