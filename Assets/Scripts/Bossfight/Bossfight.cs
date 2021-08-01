@@ -5,6 +5,7 @@ using UnityEngine.Events;
 public class Bossfight : MonoBehaviour
 {
     [SerializeField] private Boss _boss;
+
     [SerializeField] private int _stickmenToWinAmount;
     [SerializeField] private TextMeshPro _stickmenToWinText;
 
@@ -29,12 +30,23 @@ public class Bossfight : MonoBehaviour
     public void StickmenKilledInBossfight(int amount)
     {
         _stickmenKilled += amount;
-        if(IsBossfightWon())
+        if(EnoughStickmenKilled())
         {
             WinBossfight();
         }
-    } 
-    
+    }
+
+    private bool EnoughStickmenKilled()
+    {
+        return _stickmenKilled >= _stickmenToWinAmount && _stickmenEntered > _stickmenKilled;
+    }
+
+    private void WinBossfight()
+    {
+        _boss.Die();
+        if (BossfightWon != null) BossfightWon.Invoke();
+    }
+
     public void StickmanEnteredBossfight(Stickman stickman)
     {
         if(_stickmenEntered == 0)
@@ -46,16 +58,6 @@ public class Bossfight : MonoBehaviour
         _stickmenEntered++;
     }
 
-    private bool IsBossfightWon()
-    {
-        return _stickmenKilled >= _stickmenToWinAmount && _stickmenEntered > _stickmenKilled;
-    }
-
-    private void WinBossfight()
-    {
-        _boss.Die();
-        if (BossfightWon != null) BossfightWon.Invoke();    
-    }
 
     private void StartBossfight()
     {

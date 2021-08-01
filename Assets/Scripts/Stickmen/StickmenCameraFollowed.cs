@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class StickmenCameraFollowed : MonoBehaviour, ICameraFollowed
@@ -8,7 +6,6 @@ public class StickmenCameraFollowed : MonoBehaviour, ICameraFollowed
 
     public Vector3 Position { get; set; }
     public Vector3 Offset { get => _offset; }
-    public bool IsValid { get => gameObject != null; }
 
     public void SetAsCameraFollowed()
     {

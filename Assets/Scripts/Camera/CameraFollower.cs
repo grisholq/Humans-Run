@@ -4,14 +4,19 @@ public class CameraFollower : Singleton<CameraFollower>, ICameraFollower
 {
     [SerializeField] private GameObject _defaultFollowed;
     [SerializeField] private float _speed;
-    [SerializeField] private float _minDistance; 
+    [SerializeField] private float _minDistance;
 
     public ICameraFollowed Followed { get; set; }
 
     private void Start()
     {
+        InizializeDefaultFollowed();
+    }
+
+    private void InizializeDefaultFollowed()
+    {
         ICameraFollowed followed;
-        if(_defaultFollowed.TryGetComponent<ICameraFollowed>(out followed))
+        if (_defaultFollowed.TryGetComponent<ICameraFollowed>(out followed))
         {
             Followed = followed;
         }
@@ -24,15 +29,24 @@ public class CameraFollower : Singleton<CameraFollower>, ICameraFollower
         if (!ReachedTarget())
         {
             MoveToTarget();
-        }       
+        }
     }
 
     public void MoveToTarget()
     {
-        float speed = _speed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, GetAdjustedPosition(), GetSpeed());
+    }
+
+    private float GetSpeed()
+    {
+        return _speed * Time.deltaTime;
+    }
+
+    private Vector3 GetAdjustedPosition()
+    {
         Vector3 position = Followed.Position + Followed.Offset;
         position.x = Followed.Offset.x;
-        transform.position = Vector3.MoveTowards(transform.position, position, speed);
+        return position;
     }
 
     private bool ReachedTarget()

@@ -5,9 +5,7 @@ public class ToTargetMover : IMover
     private Transform _target;
     private float _stopDistance;
 
-    private bool _atDestination;
-
-    public bool AtDestination { get => _atDestination; }
+    public bool AtDestination { get; private set; }
 
     public ToTargetMover(Transform target, float stopDistance)
     {
@@ -17,33 +15,47 @@ public class ToTargetMover : IMover
 
     public void Move(IMovable movable)
     {
-        if (_target == null) return;
-
-        if (movable.IsStopped) return;
+        if (CannotMove(movable)) return;
 
         movable.Transform.LookAt(_target);
 
-
-        if (GetDistanceToTarget(movable) <= _stopDistance)
+        if (ReachedDestination(movable))
         {
-            _atDestination = true;
+            AtDestination = true;
             return;
         }
-        else
-        {
-            _atDestination = false; 
-            
-            Vector3 direction = GetTargetDirection(movable);
-            movable.Transform.position += direction * movable.Speed * movable.SpeedMultiplier * Time.deltaTime;
-        } 
+
+        AtDestination = false;
+        movable.Transform.position += GetMoveDelta(movable);
+    }
+
+    private bool CannotMove(IMovable movable)
+    {
+        return _target == null && movable.IsStopped;
+    }
+
+    private bool ReachedDestination(IMovable movable)
+    {
+        return GetDistanceToTarget(movable) <= _stopDistance;
+    }
+
+    private float GetDistanceToTarget(IMovable movable)
+    {
+        return Vector3.Distance(movable.Transform.position, _target.transform.position);
+    }
+
+    private Vector3 GetMoveDelta(IMovable movable)
+    {
+        return GetTargetDirection(movable) * GetSpeed(movable);
     }
 
     private Vector3 GetTargetDirection(IMovable movable)
     {
         return (_target.position - movable.Transform.position).normalized;
     }
-    private float GetDistanceToTarget(IMovable movable)
+
+    private float GetSpeed(IMovable movable)
     {
-        return Vector3.Distance(movable.Transform.position, _target.transform.position);
+        return movable.Speed * movable.SpeedMultiplier * Time.deltaTime;
     }
 }

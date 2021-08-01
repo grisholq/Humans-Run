@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 [RequireComponent(typeof(DamagerAimsFinder))]
-public class OverTimeKillDamager : Damager
+public class OverTimeKiller : Damager
 {
     [SerializeField] private int _killsAmount;
     [SerializeField] private float _time;
@@ -15,9 +15,13 @@ public class OverTimeKillDamager : Damager
 
     private DamagerAimsFinder _aimsFinder;
 
-    private void OnEnable()
+    private void Awake()
     {
         _aimsFinder = GetComponent<DamagerAimsFinder>();
+    }
+
+    private void OnEnable()
+    {        
         _killingsHandler = StartCoroutine(HandleKilling());
     }
 
@@ -31,8 +35,7 @@ public class OverTimeKillDamager : Damager
         while (true)
         {
             yield return new WaitForSeconds(_time);
-            List<IDamagable> damagables = _aimsFinder.FindAims();
-            KillDamagables(damagables, _killsAmount);
+            KillDamagables(_aimsFinder.FindAims(), _killsAmount);
         }
     }
 
@@ -45,6 +48,11 @@ public class OverTimeKillDamager : Damager
             damagables[i].Kill();
         }
 
-        if (KillingsHappend != null) KillingsHappend.Invoke(killAmount);
+        CallKillingsHappend(amount);
+    }
+
+    private void CallKillingsHappend(int amount)
+    {
+        if (KillingsHappend != null) KillingsHappend.Invoke(amount);
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class InstantKillDamager : Damager
+public class InstantKiller : Damager
 {
     private void OnTriggerEnter(Collider other)
     {

@@ -4,6 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(StickmenStorage))]
 public class StickmenAmountShower : MonoBehaviour
 {
+    [SerializeField] private SpriteRenderer _shower;
     [SerializeField] private TextMeshPro _amount;
     [SerializeField] private Vector3 _offset;
 
@@ -21,9 +22,8 @@ public class StickmenAmountShower : MonoBehaviour
 
     public void SetAmountShowerPosition(Vector3 position)
     {
-        Vector3 textPosition = position;
-        textPosition += _offset;
-        textPosition.x = 0;
-        _amount.transform.position = textPosition;
+        Vector3 showerPosition = position;
+        showerPosition += _offset;
+        _shower.transform.position = showerPosition;
     }
 }

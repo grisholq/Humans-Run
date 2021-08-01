@@ -11,14 +11,15 @@ public class Level : MonoBehaviour
     private LevelData _levelData;
 
     private void Awake()
-    {
-        Application.targetFrameRate = 60;
+    {     
         InizializeLevel();
     }
 
     private void InizializeLevel()
     {
+        Application.targetFrameRate = 60;
         _levelData = LevelsLoader.Instance.LoadedLevel;
+
         _palleteInizializer = GetComponent<LevelPalleteInizializer>();
         _palleteInizializer.InizializeLevelPallete(_levelData.Pallete);
     }

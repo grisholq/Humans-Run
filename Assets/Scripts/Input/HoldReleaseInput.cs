@@ -6,6 +6,11 @@ public class HoldReleaseInput : Singleton<HoldReleaseInput>
 
     private void Update()
     {
+        HandleInput();
+    }
+
+    private void HandleInput()
+    {
         IsHolding = Input.GetMouseButton(0) || Input.touchCount != 0;
     }
 }

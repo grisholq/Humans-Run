@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Linq;
 using System.Collections.Generic;
 
 public class DamagerAimsFinder : MonoBehaviour
@@ -25,7 +26,7 @@ public class DamagerAimsFinder : MonoBehaviour
     private List<Collider> GetAimsColliders()
     {
         Collider[] colliders =  Physics.OverlapBox(transform.position, GetRange(), Quaternion.identity, _aimsLayer);
-        return new List<Collider>(colliders);
+        return colliders.ToList();
     }
 
     private Vector3 GetRange()

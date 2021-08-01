@@ -13,23 +13,29 @@ public class LevelPalleteInizializer : MonoBehaviour
 
     public void InizializeLevelPallete(LevelPallete pallete)
     {
-        _enemy.color = pallete.Enemy;
-
-        _player.color = pallete.Player;
-
-        _platform.color = pallete.Platform;
-        _trap.color = pallete.Trap;
-
+        SetColor(_enemy, pallete.Enemy);
+        SetColor(_player, pallete.Player);
+        SetColor(_platform, pallete.Platform);
+        SetColor(_trap, pallete.Trap);
         SetColorWithAlphaSaved(_multiplier, pallete.Multiplier);
         SetColorWithAlphaSaved(_multiplierParticles, pallete.Multiplier);
+        SetColor(_road, pallete.Trap);
+        SetTexture(_background, pallete.Background);
+    }
 
-        _road.color = pallete.Road;
-        _background.mainTexture = pallete.Background;
+    private void SetColor(Material material, Color color)
+    {
+        material.color = color;
     }
 
     private void SetColorWithAlphaSaved(Material material, Color color)
     {
         color.a = material.color.a;
         material.color = color;
+    }
+
+    private void SetTexture(Material material, Texture texture)
+    {
+        material.mainTexture = texture;
     }
 }
