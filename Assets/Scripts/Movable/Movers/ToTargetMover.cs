@@ -31,7 +31,7 @@ public class ToTargetMover : IMover
 
     private bool CannotMove(IMovable movable)
     {
-        return _target == null && movable.IsStopped;
+        return _target == null || movable.IsStopped;
     }
 
     private bool ReachedDestination(IMovable movable)

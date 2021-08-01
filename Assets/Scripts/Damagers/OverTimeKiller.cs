@@ -41,6 +41,8 @@ public class OverTimeKiller : Damager
 
     private void KillDamagables(List<IDamagable> damagables, int amount)
     {
+        if (damagables == null || damagables.Count == 0) return;
+
         int killAmount = amount > damagables.Count ? damagables.Count : amount;
 
         for (int i = 0; i < killAmount; i++)
