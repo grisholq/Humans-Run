@@ -423,6 +423,8 @@ GameObject:
   - component: {fileID: 78213315}
   - component: {fileID: 78213314}
   - component: {fileID: 78213318}
+  - component: {fileID: 78213316}
+  - component: {fileID: 78213313}
   m_Layer: 0
   m_Name: Stickmen
   m_TagString: Untagged
@@ -430,6 +432,33 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &78213313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78213312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68e913f80c34dff4eb022301e04e31fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LeadingPositionChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 78213318}
+        m_TargetAssemblyTypeName: StickmenCameraFollowed, Assembly-CSharp
+        m_MethodName: set_Position
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &78213314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,6 +501,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &78213316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78213312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e726e038cde67d848967ba2525f1e5f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _searchTime: 0.3
+  _leadingAmount: 3
 --- !u!114 &78213318
 MonoBehaviour:
   m_ObjectHideFlags: 0
