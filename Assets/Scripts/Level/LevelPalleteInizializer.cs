@@ -19,7 +19,7 @@ public class LevelPalleteInizializer : MonoBehaviour
         SetColor(_trap, pallete.Trap);
         SetColorWithAlphaSaved(_multiplier, pallete.Multiplier);
         SetColorWithAlphaSaved(_multiplierParticles, pallete.Multiplier);
-        SetColor(_road, pallete.Trap);
+        SetColor(_road, pallete.Road);
         SetTexture(_background, pallete.Background);
     }
 
